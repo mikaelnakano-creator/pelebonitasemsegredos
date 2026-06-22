@@ -1,18 +1,27 @@
-# Método Pele Bonita Sem Segredos
+# Método Pele Bonita Sem Segredos - V3
 
-Estrutura pronta para subir no GitHub e publicar na Vercel.
+Página reconstruída com foco em conversão:
+- Prova social
+- Empilhamento de valor
+- Bônus com destaque
+- Garantia com selo visual
+- Seções com contraste
+- Estrutura pronta para Vercel
 
-## Como usar
+## Trocas obrigatórias
 
-1. Suba todos os arquivos deste projeto para um repositório no GitHub.
-2. Na Vercel, crie um novo projeto importando esse repositório.
-3. Troque o link do checkout em `assets/js/config.js`.
-4. Substitua a imagem `assets/img/pamela-hero.jpg` por uma foto da Pamela com o mesmo nome.
-5. Publique.
+1. Em `assets/js/config.js`, troque:
+`https://SEU-LINK-DA-KIWIFY-AQUI`
 
-## Estrutura
+2. Substitua as imagens:
+- `assets/img/pamela-hero.jpg`
+- `assets/img/pamela-about.jpg`
+- `assets/img/depoimentos/depoimento-1.jpg`
+- `assets/img/depoimentos/depoimento-2.jpg`
+- `assets/img/depoimentos/depoimento-3.jpg`
+- `assets/img/depoimentos/depoimento-4.jpg`
+- `assets/img/depoimentos/depoimento-5.jpg`
+- `assets/img/depoimentos/depoimento-6.jpg`
+- `assets/img/og-image.jpg`
 
-- `index.html`: página principal.
-- `assets/css/style.css`: estilos.
-- `assets/js/config.js`: link do checkout.
-- `assets/img/pamela-hero.jpg`: imagem principal.
+Mantenha exatamente os nomes dos arquivos.
