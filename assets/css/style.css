@@ -759,3 +759,11 @@ footer {
     width: 100%;
   }
 }
+.offer-box .secure {
+  color: #2B2825 !important;
+  text-align: center !important;
+  font-weight: 700;
+  opacity: 0.85;
+  display: block;
+  width: 100%;
+}
