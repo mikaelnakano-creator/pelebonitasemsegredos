@@ -37,3 +37,11 @@ Mantenha os arquivos nestes caminhos:
 - `assets/img/resultados/resultado-03.jpg`
 - `assets/img/og-image.jpg`
 - `assets/img/favicon.png`
+
+## Ajustes finais mobile
+
+Alterações aplicadas:
+- Foto principal mobile aumentada para 360px e centralizada verticalmente.
+- Selo visual de 7 dias adicionado na seção de garantia mobile.
+- Seção "O que você recebe" mantida e ampliada no mobile.
+- FAQ mobile completo com as mesmas perguntas principais da versão desktop.
