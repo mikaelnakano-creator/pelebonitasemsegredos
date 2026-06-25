@@ -1,20 +1,39 @@
-# LP Tradicional Final — Método Pele Bonita Sem Segredos
+# LP Pele Bonita — Duas versões no mesmo link
 
-Versão atualizada conforme produto final:
-- Videoaulas
-- Análise Guiada da Pele
-- Trilhas por dor principal
-- Plano de 7 dias
-- Acesso vitalício
-- Kiwify como checkout/área de membros
+Esta versão mantém:
+- Desktop completo, baseado na versão final enviada.
+- Mobile simplificado, mais curto e mais focado em conversão.
 
-Troque o checkout em:
-assets/js/config.js
+## Como funciona
 
-Substitua as imagens mantendo os nomes:
-- assets/img/pamela-hero.jpg
-- assets/img/pamela-about.jpg
-- assets/img/depoimentos/depoimento-1.jpg até depoimento-6.jpg
-- assets/img/resultados/resultado-01.jpg até resultado-03.jpg
-- assets/img/favicon.png
-- assets/img/og-image.jpg
+O mesmo `index.html` contém duas versões:
+
+- `.desktop-page`: aparece em telas acima de 768px.
+- `.mobile-page`: aparece em telas até 768px.
+
+Tudo é controlado pelo CSS em `assets/css/style.css`.
+
+## Configurar checkout
+
+Troque o link em:
+
+`assets/js/config.js`
+
+```js
+const CHECKOUT_URL = "https://SEU-LINK-DA-KIWIFY-AQUI";
+```
+
+## Imagens esperadas
+
+Mantenha os arquivos nestes caminhos:
+
+- `assets/img/pamela-hero.jpg`
+- `assets/img/pamela-about.jpg`
+- `assets/img/depoimentos/depoimento-1.jpg`
+- `assets/img/depoimentos/depoimento-2.jpg`
+- `assets/img/depoimentos/depoimento-3.jpg`
+- `assets/img/resultados/resultado-01.jpg`
+- `assets/img/resultados/resultado-02.jpg`
+- `assets/img/resultados/resultado-03.jpg`
+- `assets/img/og-image.jpg`
+- `assets/img/favicon.png`
