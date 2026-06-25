@@ -1,4 +1,4 @@
-const CHECKOUT_URL = "https://pay.kiwify.com.br/8r0qZs6";
+const CHECKOUT_URL = "https://SEU-LINK-DA-KIWIFY-AQUI";
 
 function goToCheckout() {
   window.location.href = CHECKOUT_URL;
