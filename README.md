@@ -1,6 +1,6 @@
-# Página /obrigado com Upsell — Pamela Santos
+# Página /obrigado sem upsell — Pamela Santos
 
-Esta página foi criada para ficar dentro do mesmo projeto Vercel da oferta principal.
+Esta é uma página de obrigado limpa, sem upsell, para usar depois da compra aprovada.
 
 URL desejada:
 
@@ -8,71 +8,63 @@ URL desejada:
 https://pelebonitasemsegredos.vercel.app/obrigado
 ```
 
-## Arquivos
+## Estrutura
 
-- `obrigado/index.html`
-- `obrigado/assets/img/avaliacao-digital-da-pele.png`
-
-## Como instalar no projeto já existente da LP
-
-1. Baixe e extraia este ZIP.
-2. Copie a pasta `obrigado`.
-3. Cole a pasta `obrigado` na raiz do projeto da LP principal.
-4. Faça novo deploy no Vercel.
-
-A estrutura deve ficar parecida com:
+Copie a pasta `obrigado` para a raiz do projeto principal.
 
 ```txt
 seu-projeto/
 ├─ index.html
 ├─ assets/
-│  ├─ css/
-│  └─ img/
 └─ obrigado/
    ├─ index.html
    └─ assets/
       └─ img/
-         └─ avaliacao-digital-da-pele.png
-```
-
-Depois do deploy, acesse:
-
-```txt
-https://pelebonitasemsegredos.vercel.app/obrigado
+         └─ metodo-pele-bonita.png
 ```
 
 ## Configuração na Cakto
 
 Na tela do produto principal:
 
-1. Vá em `Upsell / Downsell`.
-2. Ative: `Esse produto tem uma página de obrigado personalizada ou upsell`.
-3. No campo `Cartão ou Pix aprovado`, cole:
+1. Ative:
+   `Esse produto tem uma página de obrigado personalizada ou upsell`
+
+2. Em `Cartão ou Pix aprovado`, coloque:
 
 ```txt
 https://pelebonitasemsegredos.vercel.app/obrigado
 ```
 
-4. Mantenha ativado:
-   `Redirecionar upsell ignorando falhas nos pagamentos de order bumps`.
+3. Como você vai usar order bump e remover upsell, pode manter:
+   `Redirecionar upsell ignorando falhas...` ativado ou não. Isso não deve impactar se não houver upsell.
 
-5. Em e-mail de confirmação, escolha:
-   `Enviar após concluir as ofertas de upsell`.
+4. E-mail:
+   Como não terá upsell, pode usar:
+   `Enviar imediatamente após o pagamento`.
 
-## Botões da Cakto
+## Redirecionamento automático para área de membros
 
-O botão de aceitar usa:
-
-```txt
-offer-id="35pdht5"
-```
-
-Não altere esse ID a menos que você gere uma nova oferta na Cakto.
-
-Tanto aceitar quanto recusar estão configurados para:
+No arquivo:
 
 ```txt
-members_area
+obrigado/index.html
 ```
 
-Ou seja, depois da decisão, a cliente será enviada para a área de membros.
+Procure este trecho:
+
+```js
+const MEMBERS_AREA_URL = "#";
+```
+
+Troque o `#` pela URL real da área de membros da Cakto.
+
+Exemplo:
+
+```js
+const MEMBERS_AREA_URL = "https://app.cakto.com.br/sua-area-de-membros";
+```
+
+Depois de alterar, faça novo deploy no Vercel.
+
+Enquanto o valor estiver como `#`, a página não redireciona automaticamente por segurança.

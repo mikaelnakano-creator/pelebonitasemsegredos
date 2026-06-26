@@ -3,34 +3,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Oferta Especial | Avaliação Digital da Pele</title>
-  <meta name="description" content="Oferta especial pós-compra: receba uma avaliação digital personalizada da sua pele feita pela Pamela Santos." />
+  <title>Compra aprovada | Método Pele Bonita Sem Segredos</title>
+  <meta name="description" content="Sua compra foi aprovada. Acesse a área de membros do Método Pele Bonita Sem Segredos." />
   <meta name="robots" content="noindex,nofollow" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #f8f1e8;
-      --cream: #fff9f1;
-      --cream2: #f2e4d2;
+      --bg: #fbf4eb;
+      --card: #fffaf3;
       --dark: #2a1b14;
-      --muted: #735f53;
+      --muted: #756157;
       --gold: #b98234;
       --gold2: #d7ad62;
-      --line: rgba(185, 130, 52, .24);
       --brown: #9f5e21;
-      --brown-dark: #6f3c14;
-      --white: #ffffff;
-      --shadow: 0 26px 80px rgba(67, 37, 19, .12);
+      --brown-dark: #704015;
+      --line: rgba(185,130,52,.22);
+      --success: #1f8f5f;
+      --shadow: 0 24px 70px rgba(67,37,19,.10);
       --radius: 32px;
     }
 
     * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -38,215 +35,148 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--dark);
       background:
-        radial-gradient(circle at 82% 8%, rgba(215, 173, 98, .24), transparent 28%),
-        radial-gradient(circle at 12% 12%, rgba(255, 255, 255, .9), transparent 22%),
-        linear-gradient(135deg, #fff8ef 0%, #f6eadb 52%, #efe0cd 100%);
+        radial-gradient(circle at 82% 8%, rgba(215,173,98,.23), transparent 28%),
+        radial-gradient(circle at 12% 12%, rgba(255,255,255,.85), transparent 24%),
+        linear-gradient(135deg, #fff8ef 0%, #f5e7d6 100%);
     }
-
-    a { color: inherit; }
 
     .page {
       min-height: 100vh;
-      padding: 24px 18px 34px;
       display: grid;
       place-items: center;
+      padding: 24px 14px;
     }
 
-    .wrap {
-      width: min(1180px, 100%);
-    }
-
-    .topbar {
-      margin: 0 auto 18px;
-      width: fit-content;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, .58);
-      border: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .9rem;
-      font-weight: 800;
-      text-align: center;
-      box-shadow: 0 12px 38px rgba(67, 37, 19, .07);
-    }
-
-    .topbar strong {
-      color: var(--brown);
-    }
-
-    .shell {
+    .card {
+      width: min(1040px, 100%);
       display: grid;
-      grid-template-columns: .86fr 1.14fr;
+      grid-template-columns: 380px 1fr;
       gap: 24px;
-      align-items: stretch;
-    }
-
-    .visual-card,
-    .copy-card {
-      background: rgba(255, 249, 241, .90);
+      padding: 24px;
+      border-radius: 40px;
+      background: rgba(255,250,243,.82);
       border: 1px solid var(--line);
-      border-radius: var(--radius);
       box-shadow: var(--shadow);
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
     }
 
-    .visual-card::before,
-    .copy-card::before {
+    .card::before {
       content: "";
       position: absolute;
       inset: 16px;
-      border: 1px solid rgba(185, 130, 52, .20);
-      border-radius: 24px;
+      border-radius: 30px;
+      border: 1px solid rgba(185,130,52,.16);
       pointer-events: none;
     }
 
-    .visual-card {
-      min-height: 650px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 28px;
-      gap: 20px;
-    }
-
-    .visual-card img {
-      width: 100%;
-      max-width: 430px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border-radius: 24px;
-      box-shadow: 0 18px 60px rgba(57, 32, 19, .10);
+    .visual {
       position: relative;
       z-index: 1;
-    }
-
-    .fallback-visual {
-      position: relative;
-      z-index: 1;
-      width: 100%;
       min-height: 520px;
-      border-radius: 24px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 16%, rgba(215,173,98,.20), transparent 32%),
+        rgba(255,255,255,.48);
       display: grid;
       place-items: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .visual img {
+      width: 100%;
+      max-width: 315px;
+      height: auto;
+      display: block;
+      border-radius: 24px;
+      box-shadow: 0 18px 55px rgba(57,32,19,.10);
+    }
+
+    .fallback {
       text-align: center;
-      padding: 34px;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.72), rgba(248,241,232,.88)),
-        radial-gradient(circle at 70% 20%, rgba(215,173,98,.22), transparent 30%);
-      border: 1px solid rgba(185,130,52,.20);
+      padding: 26px;
     }
 
-    .fallback-visual strong {
+    .fallback strong {
       display: block;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(2.2rem, 4vw, 4rem);
-      line-height: .95;
-      letter-spacing: -.05em;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.3rem, 4vw, 4.4rem);
+      line-height: .9;
+      letter-spacing: -.06em;
     }
 
-    .fallback-visual span {
+    .fallback span {
       display: block;
-      margin-top: 18px;
+      margin-top: 16px;
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 800;
     }
 
-    .mini-proof {
+    .content {
       position: relative;
       z-index: 1;
-      display: grid;
-      gap: 10px;
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,.54);
+      border-radius: 30px;
       border: 1px solid var(--line);
-    }
-
-    .mini-proof strong {
-      font-size: 1rem;
-      color: var(--dark);
-    }
-
-    .mini-proof p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.45;
-      font-size: .94rem;
-    }
-
-    .copy-card {
-      padding: clamp(28px, 4.6vw, 58px);
+      background: rgba(255,255,255,.42);
+      padding: clamp(28px, 4.4vw, 56px);
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
-    .topline {
-      display: inline-flex;
+    .badge {
       width: fit-content;
+      display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 9px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(185, 130, 52, .25);
-      background: rgba(255,255,255,.42);
-      color: var(--gold);
+      border: 1px solid rgba(31,143,95,.20);
+      background: rgba(31,143,95,.08);
+      color: var(--success);
       font-size: .78rem;
-      font-weight: 900;
-      letter-spacing: .13em;
+      font-weight: 950;
+      letter-spacing: .12em;
       text-transform: uppercase;
       margin-bottom: 18px;
-      position: relative;
-      z-index: 1;
     }
 
-    .topline::before {
-      content: "";
-      width: 8px;
-      height: 8px;
+    .badge::before {
+      content: "✓";
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background: var(--gold2);
-      box-shadow: 0 0 0 6px rgba(215, 173, 98, .15);
+      display: grid;
+      place-items: center;
+      background: var(--success);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 900;
     }
 
     h1 {
       margin: 0;
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(3.2rem, 5.35vw, 6.2rem);
+      font-size: clamp(2.9rem, 5.6vw, 5.8rem);
       line-height: .86;
       letter-spacing: -.07em;
       color: var(--dark);
-      position: relative;
-      z-index: 1;
     }
 
-    h1 em {
+    h1 span {
       color: var(--gold);
       font-style: italic;
       font-weight: 600;
     }
 
-    .subhead {
-      margin: 20px 0 0;
-      font-size: clamp(1.25rem, 2vw, 1.7rem);
-      line-height: 1.22;
-      color: var(--dark);
-      font-weight: 900;
-      letter-spacing: -.04em;
-      position: relative;
-      z-index: 1;
-    }
-
     .lead {
-      margin: 16px 0 0;
-      max-width: 680px;
-      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      margin: 20px 0 0;
+      max-width: 640px;
       color: var(--muted);
+      font-size: clamp(1.02rem, 1.55vw, 1.18rem);
       line-height: 1.62;
-      position: relative;
-      z-index: 1;
     }
 
     .lead strong {
@@ -254,265 +184,163 @@
       font-weight: 900;
     }
 
-    .comparison {
+    .steps {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 26px 0 22px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
       gap: 12px;
-      margin: 26px 0 20px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .compare-card {
-      border-radius: 20px;
-      padding: 17px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.45);
-    }
-
-    .compare-card.bad {
-      opacity: .82;
-    }
-
-    .compare-card.good {
-      background:
-        radial-gradient(circle at 90% 15%, rgba(215,173,98,.24), transparent 32%),
-        rgba(255,255,255,.68);
-    }
-
-    .compare-card small {
-      display: block;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      color: var(--gold);
-      font-weight: 900;
-      font-size: .70rem;
-      margin-bottom: 7px;
-    }
-
-    .compare-card strong {
-      display: block;
-      font-size: 1.05rem;
-      line-height: 1.25;
-      color: var(--dark);
-      margin-bottom: 6px;
-    }
-
-    .compare-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.42;
-      font-size: .92rem;
-    }
-
-    .benefits {
-      display: grid;
-      gap: 11px;
-      margin: 0 0 22px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .benefit {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 13px;
       align-items: center;
       padding: 13px 14px;
       border-radius: 18px;
       border: 1px solid var(--line);
-      background: rgba(255,255,255,.48);
+      background: rgba(255,255,255,.52);
     }
 
-    .icon {
-      width: 44px;
-      height: 44px;
+    .num {
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, var(--gold2), var(--gold));
       color: #fff;
-      font-weight: 900;
-      font-size: 1.08rem;
+      font-weight: 950;
     }
 
-    .benefit strong {
+    .step strong {
       display: block;
-      font-size: .98rem;
       color: var(--dark);
+      font-size: .98rem;
       margin-bottom: 2px;
     }
 
-    .benefit span {
+    .step span {
       display: block;
-      font-size: .91rem;
       color: var(--muted);
-      line-height: 1.35;
+      line-height: 1.38;
+      font-size: .91rem;
     }
 
-    .price-box {
-      margin: 0 0 20px;
-      padding: 20px;
+    .access-box {
+      padding: 18px;
       border-radius: 22px;
-      background:
-        radial-gradient(circle at 88% 20%, rgba(215,173,98,.26), transparent 30%),
-        linear-gradient(135deg, rgba(42,27,20,.96), rgba(76,47,28,.96));
+      background: linear-gradient(135deg, #2a1b14, #54321f);
       color: #fff;
-      position: relative;
-      z-index: 1;
-      overflow: hidden;
+      margin-bottom: 18px;
     }
 
-    .price-box small {
+    .access-box strong {
       display: block;
-      color: rgba(255,255,255,.72);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: .12em;
-      font-size: .72rem;
-      margin-bottom: 6px;
-    }
-
-    .price-row {
-      display: flex;
-      align-items: end;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .old-price {
-      color: rgba(255,255,255,.55);
-      text-decoration: line-through;
-      font-weight: 800;
       font-size: 1.1rem;
       margin-bottom: 6px;
     }
 
-    .price-box strong {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      letter-spacing: -.06em;
-      line-height: 1;
-    }
-
-    .price-box p {
-      margin: 8px 0 0;
-      color: rgba(255,255,255,.78);
+    .access-box p {
+      margin: 0;
+      color: rgba(255,255,255,.76);
       line-height: 1.45;
+      font-size: .94rem;
     }
 
-    .buttons-wrap {
-      position: relative;
-      z-index: 1;
-    }
-
-    cakto-upsell-buttons {
+    .button-row {
       display: grid;
-      gap: 12px;
-      width: 100%;
+      gap: 10px;
     }
 
-    cakto-upsell-accept::part(button) {
-      width: 100%;
-      min-height: 60px;
+    .btn {
+      min-height: 58px;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, #b76b24, #8d4f17);
-      color: #fff;
-      font-weight: 900;
-      font-size: 1rem;
-      letter-spacing: -.02em;
-      box-shadow: 0 18px 40px rgba(159, 94, 33, .22);
-      cursor: pointer;
-    }
-
-    cakto-upsell-reject::part(button) {
-      width: 100%;
-      min-height: 48px;
-      border-radius: 999px;
-      border: 1px solid rgba(42,27,20,.12);
-      background: transparent;
-      color: var(--muted);
-      font-weight: 800;
-      font-size: .93rem;
-      cursor: pointer;
-    }
-
-    .trust {
-      display: flex;
-      gap: 10px;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: .82rem;
-      font-weight: 800;
-      position: relative;
-      z-index: 1;
-    }
-
-    .trust span {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 950;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
     }
 
-    .note {
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #b76b24, #8d4f17);
+      color: #fff;
+      box-shadow: 0 16px 34px rgba(159,94,33,.22);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid rgba(42,27,20,.13);
+      min-height: 46px;
+      font-size: .92rem;
+    }
+
+    .count {
       margin: 14px 0 0;
+      text-align: center;
       color: var(--muted);
       font-size: .84rem;
       line-height: 1.45;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+      font-weight: 800;
     }
 
-    @media (max-width: 980px) {
+    .count strong {
+      color: var(--brown);
+    }
+
+    .support {
+      margin-top: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 880px) {
       .page {
-        padding: 14px 10px 24px;
         align-items: start;
+        padding: 12px 10px 24px;
       }
 
-      .topbar {
-        width: 100%;
-        font-size: .82rem;
-      }
-
-      .shell {
+      .card {
         grid-template-columns: 1fr;
         gap: 12px;
+        border-radius: 30px;
+        padding: 12px;
       }
 
-      .visual-card {
+      .card::before {
+        inset: 9px;
+        border-radius: 24px;
+      }
+
+      .visual {
         min-height: 0;
-        padding: 14px;
-        border-radius: 26px;
+        padding: 12px;
+        border-radius: 24px;
       }
 
-      .visual-card::before,
-      .copy-card::before {
-        inset: 10px;
-        border-radius: 20px;
-      }
-
-      .visual-card img {
-        max-width: 260px;
+      .visual img {
+        max-width: 235px;
         border-radius: 18px;
       }
 
-      .fallback-visual {
-        min-height: 260px;
-      }
-
-      .mini-proof {
-        display: none;
-      }
-
-      .copy-card {
-        border-radius: 26px;
+      .content {
+        border-radius: 24px;
         padding: 26px 18px 22px;
       }
 
-      .topline {
+      .badge {
         margin-bottom: 15px;
       }
 
@@ -520,174 +348,142 @@
         font-size: clamp(2.55rem, 14vw, 4rem);
       }
 
-      .subhead {
-        font-size: 1.22rem;
-      }
-
       .lead {
-        margin-top: 14px;
+        margin-top: 16px;
         font-size: .98rem;
       }
 
-      .comparison {
-        grid-template-columns: 1fr;
-        margin: 20px 0 16px;
+      .steps {
+        margin: 20px 0 18px;
       }
 
-      .benefit {
+      .step {
         grid-template-columns: 38px 1fr;
         padding: 12px;
       }
 
-      .icon {
+      .num {
         width: 38px;
         height: 38px;
       }
 
-      .price-box {
-        padding: 18px;
-      }
-
-      .trust {
-        font-size: .75rem;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .visual-card img {
-        max-width: 230px;
-      }
-
-      cakto-upsell-accept::part(button) {
-        font-size: .93rem;
+      .btn {
+        font-size: .95rem;
       }
     }
   </style>
 </head>
 
 <body>
+  <!--
+    IMPORTANTE:
+    Substitua o valor abaixo pela URL real da área de membros da Cakto, se quiser redirecionamento automático.
+
+    Exemplo:
+    const MEMBERS_AREA_URL = "https://app.cakto.com.br/alguma-url-da-area-de-membros";
+
+    Enquanto estiver como "#", a página NÃO redireciona automaticamente.
+  -->
+  <script>
+    const MEMBERS_AREA_URL = "#";
+    const AUTO_REDIRECT_SECONDS = 8;
+  </script>
+
   <main class="page">
-    <div class="wrap">
-      <div class="topbar">
-        Compra aprovada. Antes de acessar o método, veja esta <strong>oferta exclusiva desta página</strong>.
+    <section class="card" aria-label="Página de obrigado">
+      <div class="visual">
+        <img src="./assets/img/metodo-pele-bonita.png" alt="Método Pele Bonita Sem Segredos" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
+        <div class="fallback" style="display:none;">
+          <strong>Método Pele Bonita Sem Segredos</strong>
+          <span>Pamela Santos • Esteticista e Cosmetóloga</span>
+        </div>
       </div>
 
-      <section class="shell" aria-label="Oferta especial: Avaliação Digital da Pele">
-        <div class="visual-card">
-          <img src="./assets/img/avaliacao-digital-da-pele.png" alt="Avaliação Digital da Pele com Pamela Santos" onerror="this.style.display='none';this.nextElementSibling.style.display='grid';">
-          <div class="fallback-visual" style="display:none;">
+      <div class="content">
+        <span class="badge">Compra aprovada</span>
+
+        <h1>Seu acesso está <span>liberado</span></h1>
+
+        <p class="lead">
+          Obrigada pela sua compra. Agora você já pode acessar o
+          <strong>Método Pele Bonita Sem Segredos</strong> e começar pela orientação inicial dentro da área de membros.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
             <div>
-              <strong>Avaliação Digital da Pele</strong>
-              <span>Pamela Santos • Esteticista e Cosmetóloga</span>
+              <strong>Acesse a área de membros</strong>
+              <span>Você será direcionada para a plataforma onde estão os conteúdos.</span>
             </div>
           </div>
 
-          <div class="mini-proof">
-            <strong>Por que essa oferta aparece agora?</strong>
-            <p>Porque o método te dá direção. A avaliação personalizada mostra como aplicar essa direção na sua pele.</p>
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <strong>Comece pela aula de boas-vindas</strong>
+              <span>Ela vai te mostrar como usar o método da forma correta.</span>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <strong>Faça sua Análise Guiada da Pele</strong>
+              <span>Assim você entende por onde começar com mais segurança.</span>
+            </div>
           </div>
         </div>
 
-        <div class="copy-card">
-          <span class="topline">Upsell exclusivo pós-compra</span>
-
-          <h1>Avaliação Digital <em>da</em> Pele</h1>
-
-          <p class="subhead">
-            Receba uma orientação personalizada da Pamela para entender melhor o seu tipo de pele.
-          </p>
-
-          <p class="lead">
-            Você acabou de garantir o <strong>Método Pele Bonita Sem Segredos</strong>.
-            Agora pode adicionar uma <strong>análise individual da sua pele</strong> com um vídeo exclusivo da Pamela Santos,
-            indicando os cuidados mais importantes para o seu caso.
-          </p>
-
-          <div class="comparison">
-            <div class="compare-card bad">
-              <small>Sem avaliação</small>
-              <strong>Você segue apenas com as aulas</strong>
-              <p>Ótimo para aprender, mas ainda exige que você interprete tudo sozinha.</p>
-            </div>
-
-            <div class="compare-card good">
-              <small>Com avaliação</small>
-              <strong>Você recebe direção personalizada</strong>
-              <p>A Pamela analisa suas informações e grava um vídeo com orientações para sua pele.</p>
-            </div>
-          </div>
-
-          <div class="benefits">
-            <div class="benefit">
-              <div class="icon">✓</div>
-              <div>
-                <strong>Análise personalizada da sua pele</strong>
-                <span>Com base nas informações que você enviar após a compra.</span>
-              </div>
-            </div>
-
-            <div class="benefit">
-              <div class="icon">▶</div>
-              <div>
-                <strong>Vídeo exclusivo da Pamela</strong>
-                <span>Orientações claras sobre sua pele, cuidados e próximos passos.</span>
-              </div>
-            </div>
-
-            <div class="benefit">
-              <div class="icon">✦</div>
-              <div>
-                <strong>Recomendações para melhores resultados</strong>
-                <span>Mais segurança para evitar compras e tratamentos sem direção.</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="price-box">
-            <small>Oferta liberada somente agora</small>
-            <div class="price-row">
-              <span class="old-price">R$ 97</span>
-              <strong>R$ 47,90</strong>
-            </div>
-            <p>Ao aceitar, a Avaliação Digital da Pele será adicionada ao seu pedido.</p>
-          </div>
-
-          <div class="buttons-wrap">
-            <cakto-upsell-buttons>
-              <cakto-upsell-accept
-                bg-color="#9f5e21ff"
-                text-color="#ffffff"
-                upsell-accept-url="members_area"
-                offer-id="35pdht5"
-                app-base-url="https://app.cakto.com.br"
-                offer-type="upsell"
-                upsell-reject-url="members_area"
-              >
-                Sim, quero minha avaliação personalizada!
-              </cakto-upsell-accept>
-
-              <cakto-upsell-reject
-                upsell-reject-url="members_area"
-              >
-                Não, vou seguir apenas com o método
-              </cakto-upsell-reject>
-            </cakto-upsell-buttons>
-          </div>
-
-          <div class="trust">
-            <span>✓ Pagamento seguro</span>
-            <span>✓ Acesso após o pedido</span>
-            <span>✓ Oferta opcional</span>
-          </div>
-
-          <p class="note">
-            Aceitando ou recusando, você será direcionada para a área de membros ao final desta etapa.
-          </p>
+        <div class="access-box">
+          <strong>Seu acesso também será enviado por e-mail.</strong>
+          <p>Procure na caixa de entrada, promoções ou spam pelo e-mail de confirmação da compra.</p>
         </div>
-      </section>
-    </div>
+
+        <div class="button-row">
+          <a class="btn btn-primary" id="accessBtn" href="#" rel="nofollow">Acessar área de membros</a>
+          <a class="btn btn-secondary" href="mailto:contato@seudominio.com.br?subject=Ajuda%20com%20meu%20acesso">Preciso de ajuda com meu acesso</a>
+        </div>
+
+        <p class="count" id="countText">
+          Você será redirecionada automaticamente em <strong>8 segundos</strong>.
+        </p>
+
+        <p class="support">
+          Se o redirecionamento não funcionar, clique no botão acima ou use o link recebido no e-mail de confirmação.
+        </p>
+      </div>
+    </section>
   </main>
 
-  <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js"></script>
+  <script>
+    const accessBtn = document.getElementById("accessBtn");
+    const countText = document.getElementById("countText");
+
+    if (MEMBERS_AREA_URL && MEMBERS_AREA_URL !== "#") {
+      accessBtn.href = MEMBERS_AREA_URL;
+
+      let remaining = AUTO_REDIRECT_SECONDS;
+      countText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
+
+      const timer = setInterval(() => {
+        remaining -= 1;
+        countText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
+
+        if (remaining <= 0) {
+          clearInterval(timer);
+          window.location.href = MEMBERS_AREA_URL;
+        }
+      }, 1000);
+    } else {
+      accessBtn.href = "#";
+      accessBtn.addEventListener("click", function(event) {
+        event.preventDefault();
+        alert("Configure a URL real da área de membros no arquivo index.html, no campo MEMBERS_AREA_URL.");
+      });
+
+      countText.innerHTML = "Após configurar a URL da área de membros, esta página poderá redirecionar automaticamente.";
+    }
+  </script>
 </body>
 </html>
