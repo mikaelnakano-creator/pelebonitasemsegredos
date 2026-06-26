@@ -13,18 +13,14 @@
 
   <style>
     :root {
-      --bg: #fbf4eb;
-      --card: #fffaf3;
       --dark: #2a1b14;
       --muted: #756157;
       --gold: #b98234;
       --gold2: #d7ad62;
       --brown: #9f5e21;
-      --brown-dark: #704015;
       --line: rgba(185,130,52,.22);
-      --success: #1f8f5f;
+      --success: #168a5b;
       --shadow: 0 24px 70px rgba(67,37,19,.10);
-      --radius: 32px;
     }
 
     * { box-sizing: border-box; }
@@ -35,8 +31,7 @@
       font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--dark);
       background:
-        radial-gradient(circle at 82% 8%, rgba(215,173,98,.23), transparent 28%),
-        radial-gradient(circle at 12% 12%, rgba(255,255,255,.85), transparent 24%),
+        radial-gradient(circle at 80% 8%, rgba(215,173,98,.22), transparent 27%),
         linear-gradient(135deg, #fff8ef 0%, #f5e7d6 100%);
     }
 
@@ -44,19 +39,17 @@
       min-height: 100vh;
       display: grid;
       place-items: center;
-      padding: 24px 14px;
+      padding: 18px;
     }
 
     .card {
-      width: min(1040px, 100%);
-      display: grid;
-      grid-template-columns: 380px 1fr;
-      gap: 24px;
-      padding: 24px;
-      border-radius: 40px;
-      background: rgba(255,250,243,.82);
+      width: min(760px, 100%);
+      padding: clamp(30px, 5vw, 58px);
+      border-radius: 34px;
+      background: rgba(255,250,243,.92);
       border: 1px solid var(--line);
       box-shadow: var(--shadow);
+      text-align: center;
       position: relative;
       overflow: hidden;
     }
@@ -64,83 +57,29 @@
     .card::before {
       content: "";
       position: absolute;
-      inset: 16px;
-      border-radius: 30px;
+      inset: 14px;
       border: 1px solid rgba(185,130,52,.16);
+      border-radius: 24px;
       pointer-events: none;
     }
 
-    .visual {
-      position: relative;
-      z-index: 1;
-      min-height: 520px;
-      border-radius: 30px;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at 80% 16%, rgba(215,173,98,.20), transparent 32%),
-        rgba(255,255,255,.48);
-      display: grid;
-      place-items: center;
-      padding: 20px;
-      overflow: hidden;
-    }
-
-    .visual img {
-      width: 100%;
-      max-width: 315px;
-      height: auto;
-      display: block;
-      border-radius: 24px;
-      box-shadow: 0 18px 55px rgba(57,32,19,.10);
-    }
-
-    .fallback {
-      text-align: center;
-      padding: 26px;
-    }
-
-    .fallback strong {
-      display: block;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.3rem, 4vw, 4.4rem);
-      line-height: .9;
-      letter-spacing: -.06em;
-    }
-
-    .fallback span {
-      display: block;
-      margin-top: 16px;
-      color: var(--muted);
-      font-weight: 800;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      border-radius: 30px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.42);
-      padding: clamp(28px, 4.4vw, 56px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    .content { position: relative; z-index: 1; }
 
     .badge {
       width: fit-content;
+      margin: 0 auto 18px;
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 9px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(31,143,95,.20);
-      background: rgba(31,143,95,.08);
+      border: 1px solid rgba(22,138,91,.20);
+      background: rgba(22,138,91,.08);
       color: var(--success);
-      font-size: .78rem;
+      font-size: .76rem;
       font-weight: 950;
       letter-spacing: .12em;
       text-transform: uppercase;
-      margin-bottom: 18px;
     }
 
     .badge::before {
@@ -159,7 +98,7 @@
     h1 {
       margin: 0;
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(2.9rem, 5.6vw, 5.8rem);
+      font-size: clamp(3rem, 8vw, 5.6rem);
       line-height: .86;
       letter-spacing: -.07em;
       color: var(--dark);
@@ -172,88 +111,65 @@
     }
 
     .lead {
-      margin: 20px 0 0;
-      max-width: 640px;
+      margin: 22px auto 0;
+      max-width: 560px;
       color: var(--muted);
-      font-size: clamp(1.02rem, 1.55vw, 1.18rem);
+      font-size: clamp(1rem, 2.1vw, 1.16rem);
       line-height: 1.62;
     }
 
-    .lead strong {
-      color: var(--dark);
-      font-weight: 900;
-    }
+    .lead strong { color: var(--dark); font-weight: 900; }
 
-    .steps {
+    .info {
+      margin: 28px auto 22px;
+      max-width: 560px;
       display: grid;
       gap: 10px;
-      margin: 26px 0 22px;
+      text-align: left;
     }
 
-    .step {
+    .item {
       display: grid;
-      grid-template-columns: 42px 1fr;
+      grid-template-columns: 34px 1fr;
       gap: 12px;
-      align-items: center;
-      padding: 13px 14px;
+      align-items: start;
+      padding: 14px 15px;
       border-radius: 18px;
       border: 1px solid var(--line);
       background: rgba(255,255,255,.52);
     }
 
-    .num {
-      width: 42px;
-      height: 42px;
+    .icon {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, var(--gold2), var(--gold));
       color: #fff;
       font-weight: 950;
+      font-size: .86rem;
+      margin-top: 1px;
     }
 
-    .step strong {
+    .item strong {
       display: block;
       color: var(--dark);
-      font-size: .98rem;
+      font-size: .96rem;
       margin-bottom: 2px;
     }
 
-    .step span {
+    .item span {
       display: block;
       color: var(--muted);
       line-height: 1.38;
-      font-size: .91rem;
-    }
-
-    .access-box {
-      padding: 18px;
-      border-radius: 22px;
-      background: linear-gradient(135deg, #2a1b14, #54321f);
-      color: #fff;
-      margin-bottom: 18px;
-    }
-
-    .access-box strong {
-      display: block;
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-
-    .access-box p {
-      margin: 0;
-      color: rgba(255,255,255,.76);
-      line-height: 1.45;
-      font-size: .94rem;
-    }
-
-    .button-row {
-      display: grid;
-      gap: 10px;
+      font-size: .9rem;
     }
 
     .btn {
+      width: min(520px, 100%);
       min-height: 58px;
+      margin: 0 auto;
       border-radius: 999px;
       border: none;
       display: inline-flex;
@@ -264,125 +180,52 @@
       font-weight: 950;
       font-size: 1rem;
       cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #b76b24, #8d4f17);
       color: #fff;
+      background: linear-gradient(135deg, #b76b24, #8d4f17);
       box-shadow: 0 16px 34px rgba(159,94,33,.22);
+      transition: transform .18s ease;
     }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid rgba(42,27,20,.13);
-      min-height: 46px;
-      font-size: .92rem;
-    }
+    .btn:hover { transform: translateY(-1px); }
 
-    .count {
-      margin: 14px 0 0;
-      text-align: center;
+    .timer {
+      margin: 14px auto 0;
       color: var(--muted);
       font-size: .84rem;
       line-height: 1.45;
       font-weight: 800;
+      max-width: 520px;
     }
 
-    .count strong {
-      color: var(--brown);
-    }
+    .timer strong { color: var(--brown); }
 
     .support {
-      margin-top: 12px;
-      text-align: center;
+      margin: 12px auto 0;
+      max-width: 520px;
       color: var(--muted);
-      font-size: .82rem;
+      font-size: .8rem;
       line-height: 1.45;
     }
 
-    @media (max-width: 880px) {
-      .page {
-        align-items: start;
-        padding: 12px 10px 24px;
-      }
-
-      .card {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        border-radius: 30px;
-        padding: 12px;
-      }
-
-      .card::before {
-        inset: 9px;
-        border-radius: 24px;
-      }
-
-      .visual {
-        min-height: 0;
-        padding: 12px;
-        border-radius: 24px;
-      }
-
-      .visual img {
-        max-width: 235px;
-        border-radius: 18px;
-      }
-
-      .content {
-        border-radius: 24px;
-        padding: 26px 18px 22px;
-      }
-
-      .badge {
-        margin-bottom: 15px;
-      }
-
-      h1 {
-        font-size: clamp(2.55rem, 14vw, 4rem);
-      }
-
-      .lead {
-        margin-top: 16px;
-        font-size: .98rem;
-      }
-
-      .steps {
-        margin: 20px 0 18px;
-      }
-
-      .step {
-        grid-template-columns: 38px 1fr;
-        padding: 12px;
-      }
-
-      .num {
-        width: 38px;
-        height: 38px;
-      }
-
-      .btn {
-        font-size: .95rem;
-      }
+    @media (max-width: 520px) {
+      .page { padding: 10px; align-items: start; }
+      .card { border-radius: 26px; padding: 28px 18px; }
+      .card::before { inset: 9px; border-radius: 20px; }
+      h1 { font-size: clamp(2.75rem, 15vw, 4rem); }
+      .lead { margin-top: 18px; font-size: .98rem; }
+      .info { margin: 22px auto 18px; }
+      .item { padding: 12px; grid-template-columns: 32px 1fr; }
+      .icon { width: 32px; height: 32px; }
+      .btn { min-height: 56px; font-size: .95rem; }
     }
   </style>
 </head>
 
 <body>
   <!--
-    IMPORTANTE:
-    Substitua o valor abaixo pela URL real da área de membros da Cakto, se quiser redirecionamento automático.
-
+    TROQUE O # ABAIXO PELA URL REAL DA ÁREA DE MEMBROS DA CAKTO.
     Exemplo:
-    const MEMBERS_AREA_URL = "https://app.cakto.com.br/alguma-url-da-area-de-membros";
-
-    Enquanto estiver como "#", a página NÃO redireciona automaticamente.
+    const MEMBERS_AREA_URL = "https://app.cakto.com.br/members/...";
   -->
   <script>
     const MEMBERS_AREA_URL = "#";
@@ -390,67 +233,43 @@
   </script>
 
   <main class="page">
-    <section class="card" aria-label="Página de obrigado">
-      <div class="visual">
-        <img src="./assets/img/metodo-pele-bonita.png" alt="Método Pele Bonita Sem Segredos" onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-        <div class="fallback" style="display:none;">
-          <strong>Método Pele Bonita Sem Segredos</strong>
-          <span>Pamela Santos • Esteticista e Cosmetóloga</span>
-        </div>
-      </div>
-
+    <section class="card" aria-label="Compra aprovada">
       <div class="content">
-        <span class="badge">Compra aprovada</span>
+        <div class="badge">Compra aprovada</div>
 
         <h1>Seu acesso está <span>liberado</span></h1>
 
         <p class="lead">
           Obrigada pela sua compra. Agora você já pode acessar o
-          <strong>Método Pele Bonita Sem Segredos</strong> e começar pela orientação inicial dentro da área de membros.
+          <strong>Método Pele Bonita Sem Segredos</strong> e começar sua jornada de cuidados com mais direção.
         </p>
 
-        <div class="steps">
-          <div class="step">
-            <div class="num">1</div>
+        <div class="info">
+          <div class="item">
+            <div class="icon">1</div>
             <div>
               <strong>Acesse a área de membros</strong>
-              <span>Você será direcionada para a plataforma onde estão os conteúdos.</span>
+              <span>Você encontrará as aulas, a Análise Guiada da Pele e os materiais do método.</span>
             </div>
           </div>
 
-          <div class="step">
-            <div class="num">2</div>
+          <div class="item">
+            <div class="icon">2</div>
             <div>
-              <strong>Comece pela aula de boas-vindas</strong>
-              <span>Ela vai te mostrar como usar o método da forma correta.</span>
-            </div>
-          </div>
-
-          <div class="step">
-            <div class="num">3</div>
-            <div>
-              <strong>Faça sua Análise Guiada da Pele</strong>
-              <span>Assim você entende por onde começar com mais segurança.</span>
+              <strong>Confira seu e-mail</strong>
+              <span>O acesso também será enviado para o e-mail usado na compra. Veja caixa de entrada, promoções ou spam.</span>
             </div>
           </div>
         </div>
 
-        <div class="access-box">
-          <strong>Seu acesso também será enviado por e-mail.</strong>
-          <p>Procure na caixa de entrada, promoções ou spam pelo e-mail de confirmação da compra.</p>
-        </div>
+        <a class="btn" id="accessBtn" href="#" rel="nofollow">Acessar área de membros</a>
 
-        <div class="button-row">
-          <a class="btn btn-primary" id="accessBtn" href="#" rel="nofollow">Acessar área de membros</a>
-          <a class="btn btn-secondary" href="mailto:contato@seudominio.com.br?subject=Ajuda%20com%20meu%20acesso">Preciso de ajuda com meu acesso</a>
-        </div>
-
-        <p class="count" id="countText">
+        <p class="timer" id="timerText">
           Você será redirecionada automaticamente em <strong>8 segundos</strong>.
         </p>
 
         <p class="support">
-          Se o redirecionamento não funcionar, clique no botão acima ou use o link recebido no e-mail de confirmação.
+          Se tiver dificuldade com o acesso, responda o e-mail de confirmação ou entre em contato com o suporte.
         </p>
       </div>
     </section>
@@ -458,31 +277,30 @@
 
   <script>
     const accessBtn = document.getElementById("accessBtn");
-    const countText = document.getElementById("countText");
+    const timerText = document.getElementById("timerText");
 
     if (MEMBERS_AREA_URL && MEMBERS_AREA_URL !== "#") {
       accessBtn.href = MEMBERS_AREA_URL;
 
       let remaining = AUTO_REDIRECT_SECONDS;
-      countText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
+      timerText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
 
-      const timer = setInterval(() => {
+      const interval = setInterval(() => {
         remaining -= 1;
-        countText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
+        timerText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
 
         if (remaining <= 0) {
-          clearInterval(timer);
+          clearInterval(interval);
           window.location.href = MEMBERS_AREA_URL;
         }
       }, 1000);
     } else {
-      accessBtn.href = "#";
       accessBtn.addEventListener("click", function(event) {
         event.preventDefault();
-        alert("Configure a URL real da área de membros no arquivo index.html, no campo MEMBERS_AREA_URL.");
+        alert("Configure a URL real da área de membros no campo MEMBERS_AREA_URL dentro do arquivo obrigado/index.html.");
       });
 
-      countText.innerHTML = "Após configurar a URL da área de membros, esta página poderá redirecionar automaticamente.";
+      timerText.innerHTML = "Configure a URL da área de membros para ativar o redirecionamento automático.";
     }
   </script>
 </body>

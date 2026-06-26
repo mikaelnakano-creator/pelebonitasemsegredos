@@ -1,57 +1,26 @@
-# Página /obrigado sem upsell — Pamela Santos
+# Página /obrigado clean — um bloco só
 
-Esta é uma página de obrigado limpa, sem upsell, para usar depois da compra aprovada.
+Esta versão remove o bloco de imagem lateral e deixa a página de obrigado mais simples, clean e centralizada.
 
-URL desejada:
+## Como instalar
 
-```txt
-https://pelebonitasemsegredos.vercel.app/obrigado
-```
+Copie a pasta `obrigado` para a raiz do projeto principal e faça deploy no Vercel.
 
-## Estrutura
-
-Copie a pasta `obrigado` para a raiz do projeto principal.
-
-```txt
-seu-projeto/
-├─ index.html
-├─ assets/
-└─ obrigado/
-   ├─ index.html
-   └─ assets/
-      └─ img/
-         └─ metodo-pele-bonita.png
-```
-
-## Configuração na Cakto
-
-Na tela do produto principal:
-
-1. Ative:
-   `Esse produto tem uma página de obrigado personalizada ou upsell`
-
-2. Em `Cartão ou Pix aprovado`, coloque:
+URL final:
 
 ```txt
 https://pelebonitasemsegredos.vercel.app/obrigado
 ```
 
-3. Como você vai usar order bump e remover upsell, pode manter:
-   `Redirecionar upsell ignorando falhas...` ativado ou não. Isso não deve impactar se não houver upsell.
+## Como configurar redirecionamento automático
 
-4. E-mail:
-   Como não terá upsell, pode usar:
-   `Enviar imediatamente após o pagamento`.
-
-## Redirecionamento automático para área de membros
-
-No arquivo:
+Abra:
 
 ```txt
 obrigado/index.html
 ```
 
-Procure este trecho:
+Procure:
 
 ```js
 const MEMBERS_AREA_URL = "#";
@@ -62,9 +31,35 @@ Troque o `#` pela URL real da área de membros da Cakto.
 Exemplo:
 
 ```js
-const MEMBERS_AREA_URL = "https://app.cakto.com.br/sua-area-de-membros";
+const MEMBERS_AREA_URL = "https://app.cakto.com.br/members/sua-area";
 ```
 
-Depois de alterar, faça novo deploy no Vercel.
+Pronto. A página vai redirecionar automaticamente depois de 8 segundos.
 
-Enquanto o valor estiver como `#`, a página não redireciona automaticamente por segurança.
+## Como mudar o tempo
+
+No mesmo arquivo, altere:
+
+```js
+const AUTO_REDIRECT_SECONDS = 8;
+```
+
+Para 5, 10 ou outro valor.
+
+## Como deixar só com botão, sem redirecionamento automático
+
+Remova ou comente este trecho no final do arquivo:
+
+```js
+const interval = setInterval(() => {
+  remaining -= 1;
+  timerText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
+
+  if (remaining <= 0) {
+    clearInterval(interval);
+    window.location.href = MEMBERS_AREA_URL;
+  }
+}, 1000);
+```
+
+E altere o texto do timer, se quiser.
