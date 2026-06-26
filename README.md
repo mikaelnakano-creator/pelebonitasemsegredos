@@ -1,47 +1,78 @@
-# LP Pele Bonita — Duas versões no mesmo link
+# Página /obrigado com Upsell — Pamela Santos
 
-Esta versão mantém:
-- Desktop completo, baseado na versão final enviada.
-- Mobile simplificado, mais curto e mais focado em conversão.
+Esta página foi criada para ficar dentro do mesmo projeto Vercel da oferta principal.
 
-## Como funciona
+URL desejada:
 
-O mesmo `index.html` contém duas versões:
-
-- `.desktop-page`: aparece em telas acima de 768px.
-- `.mobile-page`: aparece em telas até 768px.
-
-Tudo é controlado pelo CSS em `assets/css/style.css`.
-
-## Configurar checkout
-
-Troque o link em:
-
-`assets/js/config.js`
-
-```js
-const CHECKOUT_URL = "https://SEU-LINK-DA-KIWIFY-AQUI";
+```txt
+https://pelebonitasemsegredos.vercel.app/obrigado
 ```
 
-## Imagens esperadas
+## Arquivos
 
-Mantenha os arquivos nestes caminhos:
+- `obrigado/index.html`
+- `obrigado/assets/img/avaliacao-digital-da-pele.png`
 
-- `assets/img/pamela-hero.jpg`
-- `assets/img/pamela-about.jpg`
-- `assets/img/depoimentos/depoimento-1.jpg`
-- `assets/img/depoimentos/depoimento-2.jpg`
-- `assets/img/depoimentos/depoimento-3.jpg`
-- `assets/img/resultados/resultado-01.jpg`
-- `assets/img/resultados/resultado-02.jpg`
-- `assets/img/resultados/resultado-03.jpg`
-- `assets/img/og-image.jpg`
-- `assets/img/favicon.png`
+## Como instalar no projeto já existente da LP
 
-## Ajustes finais mobile
+1. Baixe e extraia este ZIP.
+2. Copie a pasta `obrigado`.
+3. Cole a pasta `obrigado` na raiz do projeto da LP principal.
+4. Faça novo deploy no Vercel.
 
-Alterações aplicadas:
-- Foto principal mobile aumentada para 360px e centralizada verticalmente.
-- Selo visual de 7 dias adicionado na seção de garantia mobile.
-- Seção "O que você recebe" mantida e ampliada no mobile.
-- FAQ mobile completo com as mesmas perguntas principais da versão desktop.
+A estrutura deve ficar parecida com:
+
+```txt
+seu-projeto/
+├─ index.html
+├─ assets/
+│  ├─ css/
+│  └─ img/
+└─ obrigado/
+   ├─ index.html
+   └─ assets/
+      └─ img/
+         └─ avaliacao-digital-da-pele.png
+```
+
+Depois do deploy, acesse:
+
+```txt
+https://pelebonitasemsegredos.vercel.app/obrigado
+```
+
+## Configuração na Cakto
+
+Na tela do produto principal:
+
+1. Vá em `Upsell / Downsell`.
+2. Ative: `Esse produto tem uma página de obrigado personalizada ou upsell`.
+3. No campo `Cartão ou Pix aprovado`, cole:
+
+```txt
+https://pelebonitasemsegredos.vercel.app/obrigado
+```
+
+4. Mantenha ativado:
+   `Redirecionar upsell ignorando falhas nos pagamentos de order bumps`.
+
+5. Em e-mail de confirmação, escolha:
+   `Enviar após concluir as ofertas de upsell`.
+
+## Botões da Cakto
+
+O botão de aceitar usa:
+
+```txt
+offer-id="35pdht5"
+```
+
+Não altere esse ID a menos que você gere uma nova oferta na Cakto.
+
+Tanto aceitar quanto recusar estão configurados para:
+
+```txt
+members_area
+```
+
+Ou seja, depois da decisão, a cliente será enviada para a área de membros.
