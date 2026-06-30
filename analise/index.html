@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Análise Guiada da Pele | Pamela Santos</title>
+  <meta name="description" content="Responda o quiz e descubra qual é a principal necessidade da sua pele." />
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+  <main class="quiz-page">
+    <section class="quiz-shell">
+      <div class="quiz-head">
+        <a href="/quiz" class="back-link">← Voltar</a>
+        <span class="pill">Análise guiada</span>
+        <h1>Responda para descobrir o que sua pele precisa agora.</h1>
+        <p>Escolha a resposta que mais combina com a sua realidade hoje.</p>
+      </div>
+
+      <form class="quiz-card" id="skinQuiz">
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="question active" data-step="1">
+          <span class="step-label">Pergunta 1 de 7</span>
+          <h2>Qual é a sua principal queixa hoje?</h2>
+          <div class="options">
+            <label><input type="radio" name="q1" value="acne"> Espinhas, cravos ou inflamações</label>
+            <label><input type="radio" name="q1" value="oleosidade"> Pele muito oleosa ou brilho excessivo</label>
+            <label><input type="radio" name="q1" value="manchas"> Manchas, melasma ou tom irregular</label>
+            <label><input type="radio" name="q1" value="sensibilidade"> Ardência, vermelhidão ou irritação fácil</label>
+            <label><input type="radio" name="q1" value="linhas"> Linhas finas, flacidez ou sinais de idade</label>
+            <label><input type="radio" name="q1" value="cicatrizes"> Marcas, furinhos ou cicatrizes na pele</label>
+          </div>
+        </div>
+
+        <div class="question" data-step="2">
+          <span class="step-label">Pergunta 2 de 7</span>
+          <h2>Como sua pele costuma ficar ao longo do dia?</h2>
+          <div class="options">
+            <label><input type="radio" name="q2" value="oleosidade"> Brilhando muito, principalmente na testa, nariz e queixo</label>
+            <label><input type="radio" name="q2" value="sensibilidade"> Repuxando, ardendo ou ficando vermelha com facilidade</label>
+            <label><input type="radio" name="q2" value="manchas"> Com aparência irregular e manchas mais evidentes</label>
+            <label><input type="radio" name="q2" value="linhas"> Com textura cansada, linhas ou aspecto envelhecido</label>
+            <label><input type="radio" name="q2" value="acne"> Com cravos, espinhas ou pontos inflamados</label>
+          </div>
+        </div>
+
+        <div class="question" data-step="3">
+          <span class="step-label">Pergunta 3 de 7</span>
+          <h2>O que mais te incomoda quando você se olha no espelho?</h2>
+          <div class="options">
+            <label><input type="radio" name="q3" value="acne"> Espinhas ativas ou cravos</label>
+            <label><input type="radio" name="q3" value="manchas"> Manchas e diferença de tonalidade</label>
+            <label><input type="radio" name="q3" value="oleosidade"> Poros aparentes e excesso de brilho</label>
+            <label><input type="radio" name="q3" value="linhas"> Linhas de expressão e perda de viço</label>
+            <label><input type="radio" name="q3" value="cicatrizes"> Marcas antigas ou relevo irregular</label>
+            <label><input type="radio" name="q3" value="sensibilidade"> Vermelhidão, coceira ou pele reativa</label>
+          </div>
+        </div>
+
+        <div class="question" data-step="4">
+          <span class="step-label">Pergunta 4 de 7</span>
+          <h2>Quando você testa um produto novo, sua pele costuma:</h2>
+          <div class="options">
+            <label><input type="radio" name="q4" value="sensibilidade"> Irritar, arder ou ficar vermelha</label>
+            <label><input type="radio" name="q4" value="acne"> Dar espinhas ou piorar cravos</label>
+            <label><input type="radio" name="q4" value="oleosidade"> Ficar mais oleosa ou pesada</label>
+            <label><input type="radio" name="q4" value="manchas"> Não melhorar manchas mesmo com uso frequente</label>
+            <label><input type="radio" name="q4" value="linhas"> Não dar resultado em textura e linhas</label>
+          </div>
+        </div>
+
+        <div class="question" data-step="5">
+          <span class="step-label">Pergunta 5 de 7</span>
+          <h2>Qual frase mais parece com você?</h2>
+          <div class="options">
+            <label><input type="radio" name="q5" value="acne"> “Já tentei secativos e sabonetes, mas a acne volta.”</label>
+            <label><input type="radio" name="q5" value="oleosidade"> “Minha pele fica oleosa mesmo lavando várias vezes.”</label>
+            <label><input type="radio" name="q5" value="manchas"> “Tenho manchas e não sei o que usar com segurança.”</label>
+            <label><input type="radio" name="q5" value="sensibilidade"> “Tenho medo de usar produto e minha pele reagir.”</label>
+            <label><input type="radio" name="q5" value="linhas"> “Quero prevenir ou melhorar sinais de idade.”</label>
+            <label><input type="radio" name="q5" value="cicatrizes"> “Quero melhorar marcas e textura da pele.”</label>
+          </div>
+        </div>
+
+        <div class="question" data-step="6">
+          <span class="step-label">Pergunta 6 de 7</span>
+          <h2>Qual é o seu maior medo ao cuidar da pele?</h2>
+          <div class="options">
+            <label><input type="radio" name="q6" value="sensibilidade"> Usar algo forte e irritar a pele</label>
+            <label><input type="radio" name="q6" value="manchas"> Piorar manchas ou escurecer mais</label>
+            <label><input type="radio" name="q6" value="acne"> A acne inflamar ou deixar marcas</label>
+            <label><input type="radio" name="q6" value="oleosidade"> Comprar produto que deixe a pele grudenta ou oleosa</label>
+            <label><input type="radio" name="q6" value="linhas"> Perder tempo e dinheiro sem ver resultado</label>
+            <label><input type="radio" name="q6" value="cicatrizes"> Fazer procedimento errado para cicatriz</label>
+          </div>
+        </div>
+
+        <div class="question" data-step="7">
+          <span class="step-label">Pergunta 7 de 7</span>
+          <h2>Hoje, sua rotina de skincare é:</h2>
+          <div class="options">
+            <label><input type="radio" name="q7" value="iniciante"> Quase nenhuma. Quero começar do jeito certo.</label>
+            <label><input type="radio" name="q7" value="confusa"> Tenho produtos, mas não sei se uso certo.</label>
+            <label><input type="radio" name="q7" value="excesso"> Uso muita coisa e minha pele não melhora.</label>
+            <label><input type="radio" name="q7" value="direcao"> Quero uma direção clara e simples.</label>
+          </div>
+        </div>
+
+        <div class="quiz-actions">
+          <button type="button" class="btn btn-line" id="prevBtn" disabled>Voltar</button>
+          <button type="button" class="btn btn-primary" id="nextBtn">Próxima</button>
+        </div>
+
+        <p class="quiz-alert" id="quizAlert">Selecione uma resposta para continuar.</p>
+      </form>
+    </section>
+  </main>
+
+  <script src="./assets/js/quiz.js"></script>
+</body>
+</html>

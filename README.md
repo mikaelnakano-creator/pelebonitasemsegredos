@@ -1,31 +1,99 @@
-# LP com Quiz — Método Pele Bonita Sem Segredos
+# Fluxo completo — LP + Quiz + Resultado
 
-Esta é a segunda versão da LP com quiz, resultado personalizado, bloco de VSL e CTA para o checkout.
+Este pacote cria três páginas separadas no mesmo projeto Vercel:
 
-## Como publicar no mesmo projeto Vercel
+```txt
+/quiz       → Página de entrada, visual parecida com a LP, com botão "Responder quiz"
+/analise    → Quiz com uma pergunta por vez, barra de progresso e botão final "Enviar análise"
+/resultado  → Página com diagnóstico, bloco de VSL e CTA para checkout
+```
 
-Copie a pasta `quiz` para a raiz do projeto principal.
+## Como instalar
 
-A URL final ficará:
+Copie as três pastas para a raiz do projeto principal da LP:
 
+```txt
+seu-projeto/
+├─ index.html
+├─ assets/
+├─ obrigado/
+├─ quiz/
+├─ analise/
+└─ resultado/
+```
+
+Depois faça novo deploy no Vercel.
+
+## URLs finais
+
+```txt
 https://pelebonitasemsegredos.vercel.app/quiz
+https://pelebonitasemsegredos.vercel.app/analise
+https://pelebonitasemsegredos.vercel.app/resultado
+```
 
 ## Configurar link do checkout
 
 Abra:
 
-quiz/assets/js/quiz.js
+```txt
+resultado/assets/js/resultado.js
+```
 
 Procure:
 
+```js
 const CHECKOUT_URL = "#";
+```
 
-Troque `#` pelo link do checkout da Cakto.
+Troque pelo link real do checkout da Cakto:
 
-## Substituir VSL
+```js
+const CHECKOUT_URL = "https://pay.cakto.com.br/SEU-CHECKOUT";
+```
 
-No arquivo `quiz/index.html`, procure o bloco `video-placeholder` e substitua por iframe do vídeo.
+## Como funciona o fluxo
 
-## Lógica do resultado
+1. A pessoa entra em `/quiz`.
+2. Clica em `Responder quiz agora`.
+3. Vai para `/analise`.
+4. Responde uma pergunta por vez.
+5. Na última pergunta, clica em `Enviar análise`.
+6. O JavaScript calcula o resultado.
+7. A pessoa é enviada para `/resultado?tipo=...`.
+8. A página de resultado mostra o diagnóstico correspondente + VSL + CTA.
 
-Cada resposta soma ponto para uma das queixas: acne, oleosidade, manchas, sensibilidade, linhas ou cicatrizes. A pergunta 1 tem peso maior.
+## Substituir a VSL
+
+Em:
+
+```txt
+resultado/index.html
+```
+
+Procure o bloco:
+
+```html
+<div class="video-placeholder">
+```
+
+Substitua esse bloco por um iframe do vídeo da Pamela.
+
+Exemplo:
+
+```html
+<iframe src="URL_DO_VIDEO" title="VSL Pamela Santos" allowfullscreen></iframe>
+```
+
+Depois ajuste o CSS, se necessário.
+
+## Resultados possíveis
+
+- acne
+- oleosidade
+- manchas
+- sensibilidade
+- linhas
+- cicatrizes
+
+A pergunta 1 tem peso extra porque representa a principal queixa declarada pela pessoa.
