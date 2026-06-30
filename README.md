@@ -1,65 +1,31 @@
-# Página /obrigado clean — um bloco só
+# LP com Quiz — Método Pele Bonita Sem Segredos
 
-Esta versão remove o bloco de imagem lateral e deixa a página de obrigado mais simples, clean e centralizada.
+Esta é a segunda versão da LP com quiz, resultado personalizado, bloco de VSL e CTA para o checkout.
 
-## Como instalar
+## Como publicar no mesmo projeto Vercel
 
-Copie a pasta `obrigado` para a raiz do projeto principal e faça deploy no Vercel.
+Copie a pasta `quiz` para a raiz do projeto principal.
 
-URL final:
+A URL final ficará:
 
-```txt
-https://pelebonitasemsegredos.vercel.app/obrigado
-```
+https://pelebonitasemsegredos.vercel.app/quiz
 
-## Como configurar redirecionamento automático
+## Configurar link do checkout
 
 Abra:
 
-```txt
-obrigado/index.html
-```
+quiz/assets/js/quiz.js
 
 Procure:
 
-```js
-const MEMBERS_AREA_URL = "#";
-```
+const CHECKOUT_URL = "#";
 
-Troque o `#` pela URL real da área de membros da Cakto.
+Troque `#` pelo link do checkout da Cakto.
 
-Exemplo:
+## Substituir VSL
 
-```js
-const MEMBERS_AREA_URL = "https://app.cakto.com.br/members/sua-area";
-```
+No arquivo `quiz/index.html`, procure o bloco `video-placeholder` e substitua por iframe do vídeo.
 
-Pronto. A página vai redirecionar automaticamente depois de 8 segundos.
+## Lógica do resultado
 
-## Como mudar o tempo
-
-No mesmo arquivo, altere:
-
-```js
-const AUTO_REDIRECT_SECONDS = 8;
-```
-
-Para 5, 10 ou outro valor.
-
-## Como deixar só com botão, sem redirecionamento automático
-
-Remova ou comente este trecho no final do arquivo:
-
-```js
-const interval = setInterval(() => {
-  remaining -= 1;
-  timerText.innerHTML = `Você será redirecionada automaticamente em <strong>${remaining} segundos</strong>.`;
-
-  if (remaining <= 0) {
-    clearInterval(interval);
-    window.location.href = MEMBERS_AREA_URL;
-  }
-}, 1000);
-```
-
-E altere o texto do timer, se quiser.
+Cada resposta soma ponto para uma das queixas: acne, oleosidade, manchas, sensibilidade, linhas ou cicatrizes. A pergunta 1 tem peso maior.

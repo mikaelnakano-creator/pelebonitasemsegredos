@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Descubra o que sua pele realmente precisa | Pamela Santos</title>
+  <meta name="description" content="Faça o quiz gratuito e descubra qual é a principal necessidade da sua pele." />
+  <link rel="canonical" href="https://pelebonitasemsegredos.vercel.app/quiz" />
+  <meta property="og:title" content="Descubra o que sua pele realmente precisa" />
+  <meta property="og:description" content="Quiz gratuito com resultado personalizado e orientação de cuidados com a pele." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+<body>
+  <main>
+    <section class="quiz-hero" id="topo">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="pill">Quiz gratuito • Resultado na hora</span>
+          <h1>Descubra o que sua pele realmente precisa antes de comprar outro produto.</h1>
+          <p>Responda algumas perguntas rápidas e veja qual cuidado faz mais sentido para o seu momento: acne, oleosidade, manchas, sensibilidade, linhas de expressão ou cicatrizes.</p>
+          <div class="hero-points">
+            <span>✓ Leva menos de 2 minutos</span><span>✓ Resultado personalizado</span><span>✓ Orientação simples e direta</span>
+          </div>
+          <a href="#quiz" class="btn btn-primary">Começar o quiz agora</a>
+        </div>
+        <div class="hero-card">
+          <div class="mini-logo">PS</div>
+          <h2>Pele bonita começa com direção.</h2>
+          <p>Chega de testar produto por modinha. Primeiro entenda sua pele, depois escolha os cuidados certos.</p>
+          <div class="skin-list"><span>Acne</span><span>Oleosidade</span><span>Manchas</span><span>Sensibilidade</span><span>Linhas de expressão</span><span>Cicatrizes</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+      <div class="container quiz-wrap">
+        <div class="section-title">
+          <span class="eyebrow">Análise rápida</span>
+          <h2>Responda com sinceridade.</h2>
+          <p>O resultado indica a sua principal necessidade de cuidado agora. Não substitui uma avaliação profissional individual.</p>
+        </div>
+        <form class="quiz-card" id="skinQuiz">
+          <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+
+          <div class="question active" data-step="1"><span class="step-label">Pergunta 1 de 7</span><h3>Qual é a sua principal queixa hoje?</h3><div class="options">
+            <label><input type="radio" name="q1" value="acne"> Espinhas, cravos ou inflamações</label>
+            <label><input type="radio" name="q1" value="oleosidade"> Pele muito oleosa ou brilho excessivo</label>
+            <label><input type="radio" name="q1" value="manchas"> Manchas, melasma ou tom irregular</label>
+            <label><input type="radio" name="q1" value="sensibilidade"> Ardência, vermelhidão ou irritação fácil</label>
+            <label><input type="radio" name="q1" value="linhas"> Linhas finas, flacidez ou sinais de idade</label>
+            <label><input type="radio" name="q1" value="cicatrizes"> Marcas, furinhos ou cicatrizes na pele</label>
+          </div></div>
+
+          <div class="question" data-step="2"><span class="step-label">Pergunta 2 de 7</span><h3>Como sua pele costuma ficar ao longo do dia?</h3><div class="options">
+            <label><input type="radio" name="q2" value="oleosidade"> Brilhando muito, principalmente na testa, nariz e queixo</label>
+            <label><input type="radio" name="q2" value="sensibilidade"> Repuxando, ardendo ou ficando vermelha com facilidade</label>
+            <label><input type="radio" name="q2" value="manchas"> Com aparência irregular e manchas mais evidentes</label>
+            <label><input type="radio" name="q2" value="linhas"> Com textura cansada, linhas ou aspecto envelhecido</label>
+            <label><input type="radio" name="q2" value="acne"> Com cravos, espinhas ou pontos inflamados</label>
+          </div></div>
+
+          <div class="question" data-step="3"><span class="step-label">Pergunta 3 de 7</span><h3>O que mais te incomoda quando você se olha no espelho?</h3><div class="options">
+            <label><input type="radio" name="q3" value="acne"> Espinhas ativas ou cravos</label>
+            <label><input type="radio" name="q3" value="manchas"> Manchas e diferença de tonalidade</label>
+            <label><input type="radio" name="q3" value="oleosidade"> Poros aparentes e excesso de brilho</label>
+            <label><input type="radio" name="q3" value="linhas"> Linhas de expressão e perda de viço</label>
+            <label><input type="radio" name="q3" value="cicatrizes"> Marcas antigas ou relevo irregular</label>
+            <label><input type="radio" name="q3" value="sensibilidade"> Vermelhidão, coceira ou pele reativa</label>
+          </div></div>
+
+          <div class="question" data-step="4"><span class="step-label">Pergunta 4 de 7</span><h3>Quando você testa um produto novo, sua pele costuma:</h3><div class="options">
+            <label><input type="radio" name="q4" value="sensibilidade"> Irritar, arder ou ficar vermelha</label>
+            <label><input type="radio" name="q4" value="acne"> Dar espinhas ou piorar cravos</label>
+            <label><input type="radio" name="q4" value="oleosidade"> Ficar mais oleosa ou pesada</label>
+            <label><input type="radio" name="q4" value="manchas"> Não melhorar manchas mesmo com uso frequente</label>
+            <label><input type="radio" name="q4" value="linhas"> Não dar resultado em textura e linhas</label>
+          </div></div>
+
+          <div class="question" data-step="5"><span class="step-label">Pergunta 5 de 7</span><h3>Qual frase mais parece com você?</h3><div class="options">
+            <label><input type="radio" name="q5" value="acne"> “Já tentei secativos e sabonetes, mas a acne volta.”</label>
+            <label><input type="radio" name="q5" value="oleosidade"> “Minha pele fica oleosa mesmo lavando várias vezes.”</label>
+            <label><input type="radio" name="q5" value="manchas"> “Tenho manchas e não sei o que usar com segurança.”</label>
+            <label><input type="radio" name="q5" value="sensibilidade"> “Tenho medo de usar produto e minha pele reagir.”</label>
+            <label><input type="radio" name="q5" value="linhas"> “Quero prevenir ou melhorar sinais de idade.”</label>
+            <label><input type="radio" name="q5" value="cicatrizes"> “Quero melhorar marcas e textura da pele.”</label>
+          </div></div>
+
+          <div class="question" data-step="6"><span class="step-label">Pergunta 6 de 7</span><h3>Qual é o seu maior medo ao cuidar da pele?</h3><div class="options">
+            <label><input type="radio" name="q6" value="sensibilidade"> Usar algo forte e irritar a pele</label>
+            <label><input type="radio" name="q6" value="manchas"> Piorar manchas ou escurecer mais</label>
+            <label><input type="radio" name="q6" value="acne"> A acne inflamar ou deixar marcas</label>
+            <label><input type="radio" name="q6" value="oleosidade"> Comprar produto que deixe a pele grudenta ou oleosa</label>
+            <label><input type="radio" name="q6" value="linhas"> Perder tempo e dinheiro sem ver resultado</label>
+            <label><input type="radio" name="q6" value="cicatrizes"> Fazer procedimento errado para cicatriz</label>
+          </div></div>
+
+          <div class="question" data-step="7"><span class="step-label">Pergunta 7 de 7</span><h3>Hoje, sua rotina de skincare é:</h3><div class="options">
+            <label><input type="radio" name="q7" value="iniciante"> Quase nenhuma. Quero começar do jeito certo.</label>
+            <label><input type="radio" name="q7" value="confusa"> Tenho produtos, mas não sei se uso certo.</label>
+            <label><input type="radio" name="q7" value="excesso"> Uso muita coisa e minha pele não melhora.</label>
+            <label><input type="radio" name="q7" value="direcao"> Quero uma direção clara e simples.</label>
+          </div></div>
+
+          <div class="quiz-actions"><button type="button" class="btn btn-line" id="prevBtn" disabled>Voltar</button><button type="button" class="btn btn-primary" id="nextBtn">Próxima</button></div>
+          <p class="quiz-alert" id="quizAlert">Selecione uma resposta para continuar.</p>
+        </form>
+      </div>
+    </section>
+
+    <section class="loading-section" id="loading" hidden><div class="container loading-card"><div class="loader"></div><h2>Analisando suas respostas...</h2><p>Estamos identificando qual cuidado faz mais sentido para sua pele agora.</p></div></section>
+
+    <section class="result-section" id="resultado" hidden>
+      <div class="container result-grid">
+        <div class="result-copy">
+          <span class="pill">Seu resultado</span>
+          <h2 id="resultTitle">Sua pele precisa de direção.</h2>
+          <p id="resultText"></p>
+          <div class="result-box"><h3>O que isso significa?</h3><p id="resultMeaning"></p></div>
+          <div class="result-box muted-box"><h3>Primeiro passo recomendado</h3><p id="resultStep"></p></div>
+        </div>
+        <div class="vsl-card">
+          <div class="video-placeholder"><button type="button" class="play">▶</button><span>Assista à explicação da Pamela</span><small>Substitua este bloco pelo vídeo/VSL depois</small></div>
+          <h3>Antes de comprar outro produto, entenda o que sua pele realmente precisa.</h3>
+          <p>O Método Pele Bonita Sem Segredos foi criado para te ajudar a sair do achismo e seguir uma rotina de cuidados com mais direção.</p>
+          <ul><li>Videoaulas com orientação simples</li><li>Análise Guiada da Pele</li><li>Rotinas por necessidade</li><li>Plano de 7 dias</li><li>Acesso vitalício</li></ul>
+          <div class="offer-card"><span>Oferta de lançamento</span><strong>R$ 27,90</strong><small>Acesso imediato pela plataforma</small></div>
+          <a href="#" class="btn btn-primary btn-checkout" id="checkoutBtn">Quero acessar o método agora</a>
+          <button type="button" class="btn btn-line" id="redoQuiz">Refazer o quiz</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <div class="container faq-grid">
+        <div><span class="eyebrow">Importante</span><h2>Esse quiz não substitui uma consulta profissional.</h2></div>
+        <div class="faq-list">
+          <details open><summary>O resultado é um diagnóstico médico?</summary><p>Não. O quiz é educativo e serve para orientar por onde começar seus cuidados. Ele não substitui avaliação profissional individual.</p></details>
+          <details><summary>Vou saber exatamente quais aulas assistir?</summary><p>Sim. A ideia é indicar sua principal necessidade e direcionar para os conteúdos mais importantes dentro do método.</p></details>
+          <details><summary>O método serve para iniciantes?</summary><p>Sim. Ele foi pensado para quem quer parar de comprar produtos no escuro e começar a cuidar da pele com mais clareza.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./assets/js/quiz.js"></script>
+</body>
+</html>
