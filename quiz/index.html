@@ -451,7 +451,7 @@
     .lp-hero h1{
       margin:0 auto;
       max-width:780px;
-      font-size:clamp(2.05rem,7.2vw,3.75rem);
+      font-size:clamp(1.85rem,6.2vw,3.15rem);
       line-height:1.12;
       letter-spacing:-.06em;
       text-transform:uppercase;
@@ -466,7 +466,7 @@
       margin:24px auto 0;
       max-width:680px;
       color:var(--text);
-      font-size:clamp(1.08rem,3.7vw,1.45rem);
+      font-size:clamp(.98rem,3.15vw,1.18rem);
       line-height:1.42;
     }
 
@@ -559,6 +559,17 @@
       display:grid;
       place-items:center;
       overflow:hidden;
+    }
+
+
+    .pamela-photo img{
+      width:100%;
+      height:100%;
+      min-height:300px;
+      object-fit:cover;
+      object-position:center top;
+      display:block;
+      border-radius:26px;
     }
 
     .photo-placeholder{
@@ -662,7 +673,7 @@
       }
 
       .lp-hero h1{
-        font-size:clamp(1.95rem,9.5vw,3rem);
+        font-size:clamp(1.75rem,8.3vw,2.55rem);
       }
 
       .pain-section,
@@ -679,6 +690,12 @@
 
       .pamela-photo{
         min-height:240px;
+      }
+
+
+      .pamela-photo img{
+        min-height:260px;
+        object-position:center top;
       }
 
       .photo-placeholder{
@@ -832,25 +849,24 @@
           <span class="lp-pill">Análise da pele 100% gratuita</span>
 
           <h1>
-            Descubra o que sua pele precisa antes de gastar com mais produtos.
-            <span>Receba uma análise guiada gratuita.</span>
+            Descubra o que sua pele precisa.
+            <span>Análise gratuita.</span>
           </h1>
 
           <p class="lp-subtitle">
-            Antes de montar uma rotina ou comprar outro skincare, responda uma análise rápida e entenda
-            qual é a principal necessidade da sua pele agora. O próximo passo é seguir uma rotina com direção.
+            Responda algumas perguntas rápidas e entenda sua principal necessidade antes de comprar outro produto.
           </p>
 
           <div class="hero-trust">
-            <span>✅ Leva menos de 2 minutos</span>
-            <span>✅ Resultado personalizado</span>
-            <span>✅ Diagnóstico inicial gratuito</span>
+            <span>✅ Menos de 2 minutos</span>
+            <span>✅ Resultado na hora</span>
+            <span>✅ Diagnóstico gratuito</span>
           </div>
 
-          <button class="main-btn hero-btn" type="button" data-next>Quero descobrir o que minha pele precisa</button>
+          <button class="main-btn hero-btn" type="button" data-next>Começar análise gratuita</button>
 
           <p class="lp-micro">
-            Gratuito • Rápido • Criado para te ajudar a cuidar da pele com mais direção
+            Gratuito • Rápido • Com orientação inicial
           </p>
         </section>
 
@@ -872,18 +888,14 @@
 
         <section class="authority-section">
           <div class="pamela-photo">
-            <div class="photo-placeholder">
-              <span>PS</span>
-            </div>
+            <img src="/assets/img/pamela.jpg" alt="Pamela Santos, Esteticista e Cosmetóloga">
           </div>
 
           <div class="authority-copy">
             <span class="lp-pill small">Por Pamela Santos</span>
-            <h2>Análise guiada por uma Esteticista e Cosmetóloga.</h2>
+            <h2>Com Pamela Santos, Esteticista e Cosmetóloga.</h2>
             <p>
-              Pamela Santos criou este caminho para ajudar mulheres que estão cansadas de comprar produtos no escuro.
-              A análise gratuita identifica a principal necessidade da sua pele e prepara você para seguir uma rotina
-              mais simples, consciente e direcionada.
+              Uma análise simples para identificar sua principal necessidade antes de montar sua rotina de cuidados.
             </p>
 
             <div class="authority-tags">

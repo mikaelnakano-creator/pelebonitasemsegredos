@@ -98,3 +98,21 @@ Ele contém a promessa central, dor principal, mecanismo, ponte para resultado e
 - Barra de progresso não aparece mais na tela inicial, evitando sobrepor o título.
 - Barra passa a aparecer somente depois que a pessoa começa o quiz.
 - Título principal da página `/quiz` foi reduzido para melhorar leitura no mobile.
+
+
+## Atualização — título menor e foto da Pamela
+
+- Título principal da página `/quiz` foi encurtado.
+- Subtítulo também foi reduzido.
+- CTA foi simplificado.
+- A seção de autoridade agora usa a imagem:
+
+```txt
+/assets/img/pamela.jpg
+```
+
+Certifique-se de que a imagem esteja na pasta principal do projeto:
+
+```txt
+assets/img/pamela.jpg
+```
