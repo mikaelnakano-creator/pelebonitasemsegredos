@@ -5,47 +5,469 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Análise da Pele | Pamela Santos</title>
   <meta name="robots" content="noindex,nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/quiz.css">
+  <meta name="description" content="Responda ao quiz e descubra o que sua pele realmente precisa.">
+
+  <style>
+    :root{
+      --text:#080817;
+      --muted:#73737f;
+      --soft:#f7f8fa;
+      --line:#dedfe5;
+      --green:#36d973;
+      --green2:#20c95d;
+      --gold:#b98234;
+      --cream:#fff7ec;
+      --brown:#9f5e21;
+      --purple:#be45d6;
+      --pink:#d146cd;
+      --shadow:0 11px 0 rgba(0,0,0,.07),0 22px 42px rgba(8,8,23,.07);
+    }
+
+    *{
+      box-sizing:border-box;
+      -webkit-tap-highlight-color:transparent;
+    }
+
+    html,body{
+      margin:0;
+      min-height:100%;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      background:#fff;
+      color:var(--text);
+    }
+
+    body{
+      overflow-x:hidden;
+    }
+
+    .app{
+      width:min(100%,820px);
+      min-height:100vh;
+      margin:0 auto;
+      padding:72px 40px 44px;
+      position:relative;
+      background:#fff;
+    }
+
+    .progress-wrap{
+      position:fixed;
+      z-index:50;
+      top:48px;
+      left:50%;
+      transform:translateX(-50%);
+      width:min(748px,calc(100% - 80px));
+      height:28px;
+      border-radius:999px;
+      background:#f4f5f8;
+      overflow:hidden;
+    }
+
+    .progress-fill{
+      width:0;
+      height:100%;
+      border-radius:999px;
+      background:linear-gradient(90deg,var(--green),var(--green2));
+      transition:width .28s ease;
+    }
+
+    .screen{
+      min-height:calc(100vh - 116px);
+      display:none!important;
+      animation:show .22s ease both;
+    }
+
+    .screen.active{
+      display:flex!important;
+    }
+
+    @keyframes show{
+      from{opacity:0;transform:translateY(8px)}
+      to{opacity:1;transform:translateY(0)}
+    }
+
+    .intro-screen,.analysis-screen,.question-screen{
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .intro-screen{
+      text-align:center;
+    }
+
+    .label{
+      display:block;
+      font-size:1.15rem;
+      font-weight:900;
+      margin:0 0 28px;
+      letter-spacing:-.02em;
+    }
+
+    .intro h1{
+      margin:0 auto;
+      max-width:780px;
+      font-size:clamp(2.25rem,8vw,4.3rem);
+      line-height:1.16;
+      letter-spacing:-.06em;
+      text-transform:uppercase;
+      font-weight:950;
+    }
+
+    .intro h1 span{
+      color:var(--gold);
+    }
+
+    .intro p{
+      margin:24px auto 0;
+      max-width:680px;
+      font-size:clamp(1.08rem,3.6vw,1.45rem);
+      line-height:1.38;
+    }
+
+    .brand-card{
+      margin:32px auto 24px;
+      max-width:610px;
+      padding:28px 24px;
+      border-radius:28px;
+      background:linear-gradient(135deg,#fff9ef,#fff);
+      border:1px solid #ead8c2;
+      box-shadow:0 18px 52px rgba(159,94,33,.1);
+    }
+
+    .brand-mark{
+      width:72px;
+      height:72px;
+      display:grid;
+      place-items:center;
+      margin:0 auto 14px;
+      border-radius:24px;
+      border:1px solid #ead8c2;
+      color:var(--gold);
+      background:#fff;
+      font-family:Georgia,serif;
+      font-size:2.15rem;
+      font-weight:800;
+      letter-spacing:-.08em;
+    }
+
+    .brand-card h2{
+      margin:0;
+      font-size:clamp(1.7rem,5vw,2.55rem);
+      line-height:1.05;
+      letter-spacing:-.05em;
+    }
+
+    .brand-card p{
+      margin:14px auto 0;
+      max-width:470px;
+      color:#5f4e44;
+      font-size:1.02rem;
+      line-height:1.5;
+    }
+
+    .checks{
+      display:grid;
+      gap:8px;
+      margin:26px 0 0;
+      font-size:clamp(1rem,3.4vw,1.22rem);
+      font-weight:900;
+      line-height:1.45;
+    }
+
+    .question-head{
+      text-align:center;
+      margin:0 0 34px;
+    }
+
+    .question-head h2{
+      margin:0 auto;
+      max-width:760px;
+      font-size:clamp(1.9rem,7.6vw,3.15rem);
+      line-height:1.18;
+      letter-spacing:-.05em;
+      font-weight:700;
+    }
+
+    .question-head p{
+      margin:14px auto 0;
+      max-width:620px;
+      color:var(--muted);
+      font-size:clamp(1rem,3.2vw,1.22rem);
+      line-height:1.4;
+    }
+
+    .grid-options{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:18px;
+    }
+
+    .list-options{
+      display:grid;
+      gap:16px;
+    }
+
+    .option-card,.list-card{
+      font-family:inherit;
+      border:1px solid var(--line);
+      background:var(--soft);
+      color:var(--text);
+      cursor:pointer;
+      box-shadow:var(--shadow);
+      transition:transform .15s ease,border-color .15s ease,background .15s ease,box-shadow .15s ease;
+    }
+
+    .option-card{
+      min-height:154px;
+      border-radius:22px;
+      padding:22px 14px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      text-align:center;
+    }
+
+    .emoji{
+      display:block;
+      font-size:3rem;
+      line-height:1;
+    }
+
+    .option-card strong{
+      font-size:clamp(1rem,3.5vw,1.42rem);
+      line-height:1.2;
+      font-weight:500;
+    }
+
+    .list-card{
+      min-height:82px;
+      padding:18px 20px;
+      border-radius:22px;
+      text-align:center;
+      font-size:clamp(1.05rem,3.7vw,1.38rem);
+      line-height:1.28;
+      font-weight:600;
+    }
+
+    .option-card.selected,.list-card.selected{
+      background:#ecfff4;
+      border-color:var(--green);
+      box-shadow:0 11px 0 rgba(32,201,93,.16),0 20px 44px rgba(32,201,93,.12);
+      transform:translateY(-2px);
+    }
+
+    .main-btn{
+      margin-top:34px;
+      width:100%;
+      min-height:84px;
+      border:0;
+      border-radius:22px;
+      font-family:inherit;
+      font-size:clamp(1.24rem,4.1vw,1.82rem);
+      font-weight:900;
+      color:#fff;
+      cursor:pointer;
+      background:linear-gradient(180deg,#61e77f,#31d869);
+      box-shadow:0 10px 0 rgba(28,188,82,.24),0 18px 36px rgba(49,216,105,.18);
+    }
+
+    .main-btn.purple{
+      background:linear-gradient(180deg,var(--pink),var(--purple));
+      box-shadow:0 10px 0 rgba(147,51,177,.25),0 18px 36px rgba(190,69,214,.18);
+    }
+
+    .main-btn.disabled,.main-btn:disabled{
+      opacity:.42;
+      cursor:not-allowed;
+      box-shadow:none;
+    }
+
+    .ghost-btn{
+      width:100%;
+      min-height:54px;
+      margin-top:14px;
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      font-family:inherit;
+      font-size:1rem;
+      font-weight:800;
+      cursor:pointer;
+    }
+
+    .analysis-screen{
+      text-align:center;
+    }
+
+    .analysis-content h2{
+      margin:0;
+      font-size:clamp(1.7rem,6vw,2.45rem);
+      letter-spacing:-.04em;
+    }
+
+    .analysis-content>p{
+      margin:28px 0 0;
+      font-size:clamp(1.1rem,4vw,1.55rem);
+    }
+
+    .meter-card{
+      margin:52px 0 34px;
+      padding:42px 20px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:#f8f9fb;
+      box-shadow:0 14px 44px rgba(8,8,23,.08);
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .meter-col{
+      min-height:250px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .meter-col+.meter-col{
+      border-left:1px solid var(--line);
+    }
+
+    .meter{
+      width:62px;
+      height:152px;
+      border-radius:16px;
+      overflow:hidden;
+      background:#dfe1e6;
+      display:flex;
+      align-items:end;
+    }
+
+    .meter span{
+      width:100%;
+      min-height:34px;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding-top:15px;
+      border-radius:12px 12px 0 0;
+      color:#fff;
+      font-weight:900;
+    }
+
+    .yellow{background:#f7c319;}
+    .green{background:#18dc22;}
+    .red{background:#b0181d;}
+
+    .meter-col strong{
+      margin-top:23px;
+      font-size:clamp(1rem,3.5vw,1.38rem);
+      letter-spacing:-.035em;
+    }
+
+    .meter-col small{
+      margin-top:12px;
+      max-width:142px;
+      line-height:1.35;
+      font-size:.95rem;
+    }
+
+    .warning-box{
+      max-width:660px;
+      margin:0 auto 32px;
+      padding:22px;
+      border-radius:18px;
+      background:#fff7b8;
+      border:1px solid #eedb75;
+      color:#7a5614;
+      text-align:left;
+    }
+
+    .warning-box strong{
+      display:block;
+      margin-bottom:8px;
+    }
+
+    .warning-box p{
+      margin:0;
+      line-height:1.45;
+    }
+
+    @media(max-width:640px){
+      .app{padding:76px 40px 40px;}
+      .progress-wrap{top:58px;width:calc(100% - 80px);}
+      .screen{min-height:calc(100vh - 116px);}
+      .grid-options{gap:16px;}
+      .option-card{min-height:146px;padding:18px 12px;}
+      .option-card .emoji{font-size:2.85rem;}
+      .list-card{min-height:78px;}
+      .meter-card{padding:36px 12px;}
+      .meter{width:54px;height:140px;}
+      .meter-col{min-height:238px;}
+    }
+
+    @media(max-width:390px){
+      .app{padding-left:28px;padding-right:28px;}
+      .progress-wrap{width:calc(100% - 56px);}
+      .main-btn{min-height:76px;}
+      .option-card strong{font-size:1rem;}
+    }
+  </style>
 </head>
+
 <body>
   <main class="app">
-    <div class="top-progress"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-wrap" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
 
     <section class="screen active intro-screen">
-      <div class="intro-content">
-        <span class="kicker">Análise guiada gratuita</span>
-        <h1>Descubra o que sua pele realmente precisa <strong>antes de comprar outro produto.</strong></h1>
-        <p class="intro-text">Responda algumas perguntas rápidas e receba uma direção inicial para cuidar da sua pele com mais segurança.</p>
-        <div class="intro-card">
+      <div class="intro">
+        <span class="label">Análise guiada gratuita</span>
+        <h1>Descubra o que sua pele realmente precisa <span>antes de comprar outro produto.</span></h1>
+        <p>Responda algumas perguntas rápidas e receba uma direção inicial para cuidar da sua pele com mais segurança.</p>
+
+        <div class="brand-card">
           <div class="brand-mark">PS</div>
           <h2>Pele bonita começa com direção.</h2>
           <p>Chega de testar produtos por modinha. Primeiro entenda sua pele, depois escolha os cuidados certos.</p>
         </div>
+
         <div class="checks">
           <span>✅ Leva menos de 2 minutos</span>
           <span>✅ Resultado personalizado</span>
           <span>✅ Orientação simples e direta</span>
         </div>
+
         <button class="main-btn" type="button" data-next>Começar análise</button>
       </div>
     </section>
 
     <section class="screen question-screen">
-      <div class="question-head"><span class="section-label">Meu perfil</span><h2>Qual é a sua idade?</h2><p>Isso ajuda a ajustar melhor sua orientação inicial.</p></div>
+      <div class="question-head">
+        <span class="label">Meu perfil</span>
+        <h2>Qual é a sua idade?</h2>
+        <p>Isso ajuda a ajustar melhor sua orientação inicial.</p>
+      </div>
+
       <div class="grid-options">
         <button class="option-card" type="button" data-value="18-29"><span class="emoji">✨</span><strong>18 a 29 anos</strong></button>
         <button class="option-card" type="button" data-value="30-39"><span class="emoji">🌷</span><strong>30 a 39 anos</strong></button>
         <button class="option-card" type="button" data-value="40-49"><span class="emoji">🌿</span><strong>40 a 49 anos</strong></button>
         <button class="option-card" type="button" data-value="50+"><span class="emoji">💛</span><strong>Mais de 50 anos</strong></button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
     <section class="screen question-screen" data-score-question="q1">
-      <div class="question-head"><span class="section-label">Minha pele</span><h2>Qual é a sua principal queixa hoje?</h2><p>Escolha a opção que mais te incomoda agora.</p></div>
+      <div class="question-head">
+        <span class="label">Minha pele</span>
+        <h2>Qual é a sua principal queixa hoje?</h2>
+        <p>Escolha a opção que mais te incomoda agora.</p>
+      </div>
+
       <div class="grid-options">
         <button class="option-card" type="button" data-value="acne"><span class="emoji">🔴</span><strong>Espinhas, cravos ou inflamações</strong></button>
         <button class="option-card" type="button" data-value="oleosidade"><span class="emoji">💧</span><strong>Pele muito oleosa ou brilho excessivo</strong></button>
@@ -54,11 +476,16 @@
         <button class="option-card" type="button" data-value="linhas"><span class="emoji">⏳</span><strong>Linhas finas ou sinais de idade</strong></button>
         <button class="option-card" type="button" data-value="cicatrizes"><span class="emoji">🧬</span><strong>Marcas, furinhos ou cicatrizes</strong></button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
     <section class="screen question-screen" data-score-question="q2">
-      <div class="question-head"><span class="section-label">Minha pele</span><h2>Como sua pele costuma ficar ao longo do dia?</h2></div>
+      <div class="question-head">
+        <span class="label">Minha pele</span>
+        <h2>Como sua pele costuma ficar ao longo do dia?</h2>
+      </div>
+
       <div class="list-options">
         <button class="list-card" type="button" data-value="oleosidade">Brilhando muito, principalmente na testa, nariz e queixo</button>
         <button class="list-card" type="button" data-value="sensibilidade">Repuxando, ardendo ou ficando vermelha com facilidade</button>
@@ -66,11 +493,16 @@
         <button class="list-card" type="button" data-value="linhas">Com textura cansada, linhas ou aspecto envelhecido</button>
         <button class="list-card" type="button" data-value="acne">Com cravos, espinhas ou pontos inflamados</button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
     <section class="screen question-screen" data-score-question="q3">
-      <div class="question-head"><span class="section-label">Minha rotina</span><h2>Quando você testa um produto novo, sua pele costuma:</h2></div>
+      <div class="question-head">
+        <span class="label">Minha rotina</span>
+        <h2>Quando você testa um produto novo, sua pele costuma:</h2>
+      </div>
+
       <div class="list-options">
         <button class="list-card" type="button" data-value="sensibilidade">Irritar, arder ou ficar vermelha</button>
         <button class="list-card" type="button" data-value="acne">Dar espinhas ou piorar cravos</button>
@@ -78,11 +510,16 @@
         <button class="list-card" type="button" data-value="manchas">Não melhorar manchas mesmo usando com frequência</button>
         <button class="list-card" type="button" data-value="linhas">Não dar resultado em textura, viço e linhas</button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
     <section class="screen question-screen" data-score-question="q4">
-      <div class="question-head"><span class="section-label">Minha realidade</span><h2>Qual frase mais parece com você?</h2></div>
+      <div class="question-head">
+        <span class="label">Minha realidade</span>
+        <h2>Qual frase mais parece com você?</h2>
+      </div>
+
       <div class="list-options">
         <button class="list-card" type="button" data-value="acne">“Já tentei secativos e sabonetes, mas a acne volta.”</button>
         <button class="list-card" type="button" data-value="oleosidade">“Minha pele fica oleosa mesmo lavando várias vezes.”</button>
@@ -91,22 +528,33 @@
         <button class="list-card" type="button" data-value="linhas">“Quero prevenir ou melhorar sinais de idade.”</button>
         <button class="list-card" type="button" data-value="cicatrizes">“Quero melhorar marcas e textura da pele.”</button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
     <section class="screen question-screen">
-      <div class="question-head"><span class="section-label">Meu objetivo</span><h2>O que você mais deseja nesse momento?</h2></div>
+      <div class="question-head">
+        <span class="label">Meu objetivo</span>
+        <h2>O que você mais deseja nesse momento?</h2>
+      </div>
+
       <div class="grid-options">
         <button class="option-card" type="button" data-value="clareza"><span class="emoji">🧭</span><strong>Saber por onde começar</strong></button>
-        <button class="option-card" type="button" data-value="comprar-melhor"><span class="emoji">🛍️</span><strong>Comprar produtos com mais segurança</strong></button>
+        <button class="option-card" type="button" data-value="comprar"><span class="emoji">🛍️</span><strong>Comprar produtos com mais segurança</strong></button>
         <button class="option-card" type="button" data-value="rotina"><span class="emoji">📅</span><strong>Ter uma rotina simples para seguir</strong></button>
         <button class="option-card" type="button" data-value="resultado"><span class="emoji">🌟</span><strong>Melhorar a aparência da minha pele</strong></button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
     <section class="screen question-screen" data-multiple="true">
-      <div class="question-head"><span class="section-label">Meu perfil</span><h2>O que mais te atrapalha hoje?</h2><p>Pode escolher mais de uma opção.</p></div>
+      <div class="question-head">
+        <span class="label">Meu perfil</span>
+        <h2>O que mais te atrapalha hoje?</h2>
+        <p>Pode escolher mais de uma opção.</p>
+      </div>
+
       <div class="grid-options">
         <button class="option-card" type="button" data-value="tempo"><span class="emoji">⏰</span><strong>Falta de tempo</strong></button>
         <button class="option-card" type="button" data-value="confusao"><span class="emoji">🤯</span><strong>Não sei o que usar</strong></button>
@@ -115,6 +563,7 @@
         <button class="option-card" type="button" data-value="constancia"><span class="emoji">📌</span><strong>Não consigo manter rotina</strong></button>
         <button class="option-card" type="button" data-value="tudo"><span class="emoji">😅</span><strong>Um pouco de tudo</strong></button>
       </div>
+
       <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
     </section>
 
@@ -122,22 +571,146 @@
       <div class="analysis-content">
         <h2>Análise inicial do seu perfil</h2>
         <p>Você está aqui</p>
+
         <div class="meter-card">
-          <div class="meter-col"><div class="meter"><span class="yellow" style="height:45%">45%</span></div><strong>Clareza</strong></div>
-          <div class="meter-col"><div class="meter"><span class="green" style="height:70%">70%</span></div><strong>Vontade</strong></div>
-          <div class="meter-col"><div class="meter"><span class="red" style="height:30%">30%</span></div><strong>Direção</strong><small>É o que falta para você cuidar melhor da pele.</small></div>
+          <div class="meter-col">
+            <div class="meter"><span class="yellow" style="height:45%">45%</span></div>
+            <strong>Clareza</strong>
+          </div>
+
+          <div class="meter-col">
+            <div class="meter"><span class="green" style="height:70%">70%</span></div>
+            <strong>Vontade</strong>
+          </div>
+
+          <div class="meter-col">
+            <div class="meter"><span class="red" style="height:30%">30%</span></div>
+            <strong>Direção</strong>
+            <small>É o que falta para você cuidar melhor da pele.</small>
+          </div>
         </div>
-        <div class="warning-box"><strong>⚠️ O que realmente vai resolver o problema?</strong><p>Uma rotina prática, feita para atender sua necessidade e evitar escolhas erradas.</p></div>
+
+        <div class="warning-box">
+          <strong>⚠️ O que realmente vai resolver o problema?</strong>
+          <p>Uma rotina prática, feita para atender sua necessidade e evitar escolhas erradas.</p>
+        </div>
+
         <button class="main-btn purple" type="button" data-next>Continuar</button>
       </div>
     </section>
 
     <section class="screen question-screen">
-      <div class="question-head"><span class="section-label">Último passo</span><h2>Você quer receber seu diagnóstico personalizado agora?</h2><p>Com base nas suas respostas, vamos mostrar sua principal necessidade e uma orientação inicial.</p></div>
+      <div class="question-head">
+        <span class="label">Último passo</span>
+        <h2>Você quer receber seu diagnóstico personalizado agora?</h2>
+        <p>Com base nas suas respostas, vamos mostrar sua principal necessidade e uma orientação inicial.</p>
+      </div>
+
       <button class="main-btn" type="button" id="submitQuiz">Enviar análise</button>
       <button class="ghost-btn" type="button" data-prev>Voltar</button>
     </section>
   </main>
-  <script src="./assets/js/quiz.js"></script>
+
+  <script>
+    const RESULT_URL = "/resultado";
+    const screens = [...document.querySelectorAll(".screen")];
+    const progressFill = document.getElementById("progressFill");
+    let current = 0;
+    const answers = {};
+    const multiAnswers = {};
+
+    function updateProgress(){
+      const total = screens.length - 1;
+      const pct = current === 0 ? 0 : Math.max(0, Math.min(100, (current / total) * 100));
+      progressFill.style.width = pct + "%";
+    }
+
+    function showScreen(index){
+      screens.forEach((screen, i) => screen.classList.toggle("active", i === index));
+      current = index;
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function enableNext(screen){
+      const btn = screen.querySelector("[data-next]");
+      if(btn){
+        btn.disabled = false;
+        btn.classList.remove("disabled");
+      }
+    }
+
+    function disableNext(screen){
+      const btn = screen.querySelector("[data-next]");
+      if(btn){
+        btn.disabled = true;
+        btn.classList.add("disabled");
+      }
+    }
+
+    function setSingleSelection(screen, button){
+      screen.querySelectorAll(".option-card,.list-card").forEach(btn => btn.classList.remove("selected"));
+      button.classList.add("selected");
+      const questionName = screen.dataset.scoreQuestion || "screen_" + current;
+      answers[questionName] = button.dataset.value;
+      enableNext(screen);
+    }
+
+    function toggleMultiSelection(screen, button){
+      button.classList.toggle("selected");
+      const selected = [...screen.querySelectorAll(".selected")].map(btn => btn.dataset.value);
+      multiAnswers["screen_" + current] = selected;
+      selected.length ? enableNext(screen) : disableNext(screen);
+    }
+
+    function calculateResult(){
+      const scores = { acne:0, oleosidade:0, manchas:0, sensibilidade:0, linhas:0, cicatrizes:0 };
+
+      Object.entries(answers).forEach(([key, value]) => {
+        if(Object.prototype.hasOwnProperty.call(scores, value)){
+          scores[value] += 1;
+        }
+
+        if(key === "q1" && Object.prototype.hasOwnProperty.call(scores, value)){
+          scores[value] += 1.5;
+        }
+      });
+
+      return Object.entries(scores).sort((a,b) => b[1] - a[1])[0][0] || "oleosidade";
+    }
+
+    document.querySelectorAll(".option-card,.list-card").forEach(button => {
+      button.addEventListener("click", () => {
+        const screen = button.closest(".screen");
+        if(screen.dataset.multiple === "true"){
+          toggleMultiSelection(screen, button);
+        }else{
+          setSingleSelection(screen, button);
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-next]").forEach(button => {
+      button.addEventListener("click", () => {
+        if(button.disabled) return;
+        if(current < screens.length - 1) showScreen(current + 1);
+      });
+    });
+
+    document.querySelectorAll("[data-prev]").forEach(button => {
+      button.addEventListener("click", () => {
+        if(current > 0) showScreen(current - 1);
+      });
+    });
+
+    document.getElementById("submitQuiz").addEventListener("click", () => {
+      const result = calculateResult();
+      localStorage.setItem("peleBonitaQuizResult", result);
+      localStorage.setItem("peleBonitaQuizAnswers", JSON.stringify({ answers, multiAnswers }));
+      window.location.href = RESULT_URL + "?tipo=" + encodeURIComponent(result);
+    });
+
+    showScreen(0);
+  </script>
 </body>
 </html>

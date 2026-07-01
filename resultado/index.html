@@ -1,40 +1,429 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Seu Diagnóstico da Pele | Pamela Santos</title>
   <meta name="robots" content="noindex,nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/resultado.css">
+
+  <style>
+    :root{
+      --text:#080817;
+      --muted:#73737f;
+      --soft:#f7f8fa;
+      --line:#dedfe5;
+      --green:#37d97d;
+      --gold:#c59744;
+      --beige:#fff7ec;
+      --brown:#9f5e21;
+      --red:#b0181d;
+    }
+
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+
+    body{
+      margin:0;
+      min-height:100vh;
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      color:var(--text);
+      background:#fff;
+    }
+
+    .page{
+      width:min(100%,820px);
+      margin:0 auto;
+      padding:56px 40px 52px;
+    }
+
+    .hero-result{text-align:center}
+
+    .label{
+      display:block;
+      font-weight:900;
+      font-size:1.05rem;
+      margin-bottom:22px;
+    }
+
+    h1{
+      margin:0 auto;
+      max-width:780px;
+      font-size:clamp(2.1rem,7vw,4.2rem);
+      line-height:1.06;
+      letter-spacing:-.055em;
+      font-weight:950;
+    }
+
+    .hero-result>p{
+      margin:22px auto 0;
+      max-width:690px;
+      color:var(--muted);
+      font-size:clamp(1.05rem,3.6vw,1.35rem);
+      line-height:1.45;
+    }
+
+    .profile-card{
+      margin:44px 0 30px;
+      padding:36px 20px;
+      border:1px solid var(--line);
+      border-radius:24px;
+      background:#f8f9fb;
+      box-shadow:0 14px 44px rgba(8,8,23,.08);
+    }
+
+    .profile-card h2{
+      margin:0 0 28px;
+      font-size:clamp(1.4rem,5vw,2rem);
+    }
+
+    .profile-bars{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+    }
+
+    .profile-item{
+      min-height:230px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .profile-item+.profile-item{
+      border-left:1px solid var(--line);
+    }
+
+    .bar{
+      width:62px;
+      height:150px;
+      border-radius:16px;
+      background:#dfe1e6;
+      display:flex;
+      align-items:end;
+      overflow:hidden;
+    }
+
+    .bar-fill{
+      width:100%;
+      min-height:36px;
+      color:#fff;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding-top:14px;
+      font-weight:900;
+      border-radius:12px 12px 0 0;
+    }
+
+    .bar-fill.gold{background:#f7c319}
+    .bar-fill.green{background:#18dc22}
+    .bar-fill.red{background:var(--red)}
+
+    .profile-item strong{
+      margin-top:22px;
+      font-size:clamp(1rem,3.5vw,1.35rem);
+    }
+
+    .profile-item small{
+      margin-top:12px;
+      max-width:150px;
+      line-height:1.35;
+    }
+
+    .result-box{
+      margin-top:18px;
+      padding:22px;
+      border:1px solid var(--line);
+      border-radius:22px;
+      text-align:left;
+      background:var(--soft);
+    }
+
+    .result-box.soft{
+      background:var(--beige);
+      border-color:#ead9c4;
+    }
+
+    .result-box h2{
+      margin:0 0 8px;
+      font-size:1.25rem;
+    }
+
+    .result-box p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .vsl-section{
+      margin-top:42px;
+      text-align:center;
+    }
+
+    .video-block{
+      aspect-ratio:16/9;
+      border-radius:26px;
+      background:linear-gradient(135deg,#24160f,#5a351f);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      padding:24px;
+      margin-bottom:30px;
+    }
+
+    .play{
+      width:74px;
+      height:74px;
+      border-radius:50%;
+      border:0;
+      background:#fff;
+      color:var(--brown);
+      font-size:1.45rem;
+      cursor:pointer;
+    }
+
+    .video-block strong,.video-block span{display:block}
+
+    .video-block strong{font-size:1.1rem}
+
+    .video-block span{
+      color:rgba(255,255,255,.7);
+      font-size:.9rem;
+    }
+
+    .vsl-section h2{
+      margin:0 auto;
+      max-width:760px;
+      font-size:clamp(2rem,7vw,4rem);
+      line-height:1.12;
+      letter-spacing:-.055em;
+      text-transform:uppercase;
+    }
+
+    .vsl-section p{
+      margin:24px auto 0;
+      max-width:680px;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:1.08rem;
+    }
+
+    .checks{
+      margin:32px 0;
+      display:grid;
+      gap:10px;
+      font-weight:900;
+      font-size:clamp(1.05rem,3.6vw,1.35rem);
+    }
+
+    .offer{
+      margin:0 auto 22px;
+      max-width:520px;
+      padding:22px;
+      border-radius:24px;
+      background:linear-gradient(135deg,#24160f,#5a351f);
+      color:#fff;
+    }
+
+    .offer span,.offer small{
+      display:block;
+      color:rgba(255,255,255,.72);
+      font-weight:800;
+    }
+
+    .offer strong{
+      display:block;
+      font-size:clamp(2.4rem,9vw,4.2rem);
+      letter-spacing:-.06em;
+      margin:6px 0;
+    }
+
+    .main-btn{
+      width:100%;
+      min-height:82px;
+      border:0;
+      border-radius:22px;
+      background:linear-gradient(180deg,#61e77f,#31d869);
+      color:#fff;
+      cursor:pointer;
+      font-weight:900;
+      font-size:clamp(1.18rem,4vw,1.7rem);
+      box-shadow:0 10px 0 rgba(28,188,82,.24),0 18px 36px rgba(49,216,105,.18);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+    }
+
+    .ghost-link{
+      display:inline-flex;
+      margin-top:18px;
+      color:var(--muted);
+      font-weight:800;
+      text-decoration:none;
+    }
+
+    .disclaimer{
+      margin-top:38px;
+      padding:18px;
+      border-radius:18px;
+      background:#fff7b8;
+      border:1px solid #eedb75;
+      color:#7a5614;
+    }
+
+    .disclaimer p{
+      margin:8px 0 0;
+      line-height:1.45;
+    }
+
+    @media(max-width:640px){
+      .page{padding:42px 40px}
+      .profile-card{padding:30px 12px}
+      .profile-item{min-height:220px}
+      .bar{width:54px;height:138px}
+    }
+
+    @media(max-width:390px){
+      .page{padding-left:28px;padding-right:28px}
+    }
+  </style>
 </head>
+
 <body>
   <main class="page">
     <section class="hero-result">
       <span class="label">Seu diagnóstico inicial</span>
       <h1 id="resultTitle">Sua pele precisa de direção.</h1>
       <p id="resultText"></p>
+
       <div class="profile-card">
         <h2>Seu perfil</h2>
+
         <div class="profile-bars">
-          <div class="profile-item"><div class="bar"><span class="bar-fill gold" style="height:55%">55%</span></div><strong>Clareza</strong></div>
-          <div class="profile-item"><div class="bar"><span class="bar-fill green" style="height:82%">82%</span></div><strong>Interesse</strong></div>
-          <div class="profile-item"><div class="bar"><span class="bar-fill red" style="height:32%">32%</span></div><strong>Direção</strong><small>É o que falta para você avançar.</small></div>
+          <div class="profile-item">
+            <div class="bar"><span class="bar-fill gold" style="height:55%">55%</span></div>
+            <strong>Clareza</strong>
+          </div>
+
+          <div class="profile-item">
+            <div class="bar"><span class="bar-fill green" style="height:82%">82%</span></div>
+            <strong>Interesse</strong>
+          </div>
+
+          <div class="profile-item">
+            <div class="bar"><span class="bar-fill red" style="height:32%">32%</span></div>
+            <strong>Direção</strong>
+            <small>É o que falta para você avançar.</small>
+          </div>
         </div>
       </div>
-      <div class="result-box"><h2>O que isso significa?</h2><p id="resultMeaning"></p></div>
-      <div class="result-box soft"><h2>Primeiro passo recomendado</h2><p id="resultStep"></p></div>
+
+      <div class="result-box">
+        <h2>O que isso significa?</h2>
+        <p id="resultMeaning"></p>
+      </div>
+
+      <div class="result-box soft">
+        <h2>Primeiro passo recomendado</h2>
+        <p id="resultStep"></p>
+      </div>
     </section>
+
     <section class="vsl-section">
-      <div class="video-block"><button class="play" type="button">▶</button><strong>Assista à explicação da Pamela</strong><span>Substitua este bloco pela VSL depois</span></div>
+      <div class="video-block">
+        <button class="play" type="button">▶</button>
+        <strong>Assista à explicação da Pamela</strong>
+        <span>Substitua este bloco pela VSL depois</span>
+      </div>
+
       <h2>Existe uma forma mais simples de cuidar da sua pele sem comprar produtos no escuro.</h2>
-      <p>O <strong>Método Pele Bonita Sem Segredos</strong> foi criado para te ajudar a entender sua pele, identificar sua principal necessidade e seguir uma rotina de cuidados com mais direção.</p>
-      <div class="checks"><span>✅ Videoaulas com orientação simples</span><span>✅ Análise Guiada da Pele</span><span>✅ Rotinas por necessidade</span><span>✅ Plano de 7 dias</span></div>
-      <div class="offer"><span>Oferta de lançamento</span><strong>R$ 27,90</strong><small>Acesso imediato • Garantia de 7 dias</small></div>
+
+      <p>
+        O <strong>Método Pele Bonita Sem Segredos</strong> foi criado para te ajudar a entender sua pele,
+        identificar sua principal necessidade e seguir uma rotina de cuidados com mais direção.
+      </p>
+
+      <div class="checks">
+        <span>✅ Videoaulas com orientação simples</span>
+        <span>✅ Análise Guiada da Pele</span>
+        <span>✅ Rotinas por necessidade</span>
+        <span>✅ Plano de 7 dias</span>
+      </div>
+
+      <div class="offer">
+        <span>Oferta de lançamento</span>
+        <strong>R$ 27,90</strong>
+        <small>Acesso imediato • Garantia de 7 dias</small>
+      </div>
+
       <a href="#" class="main-btn" id="checkoutBtn">Quero acessar o método agora</a>
       <a href="/quiz" class="ghost-link">Voltar para o início</a>
     </section>
-    <section class="disclaimer"><strong>Importante:</strong><p>Este resultado é educativo e não substitui uma avaliação profissional individual. Em caso de lesões, irritações persistentes ou condições específicas, procure uma profissional habilitada.</p></section>
+
+    <section class="disclaimer">
+      <strong>Importante:</strong>
+      <p>
+        Este resultado é educativo e não substitui uma avaliação profissional individual. Em caso de lesões,
+        irritações persistentes ou condições específicas, procure uma profissional habilitada.
+      </p>
+    </section>
   </main>
-  <script src="./assets/js/resultado.js"></script>
-</body></html>
+
+  <script>
+    const CHECKOUT_URL = "#";
+
+    const resultMap = {
+      acne: {
+        title: "Sua pele está pedindo atenção para acne e inflamações.",
+        text: "Pelas suas respostas, sua principal necessidade parece estar ligada a espinhas, cravos, inflamações ou tendência à acne.",
+        meaning: "Isso mostra que você precisa de uma rotina mais equilibrada, sem excesso de produtos agressivos e sem escolhas feitas apenas por modinha.",
+        step: "O primeiro passo é entender quais hábitos e produtos podem agravar a acne. No método, você começa pela orientação para acne e segue um plano simples de cuidados."
+      },
+      oleosidade: {
+        title: "Sua pele está pedindo controle de oleosidade sem agressão.",
+        text: "Pelas suas respostas, sua principal necessidade parece estar ligada a brilho excessivo, poros aparentes ou sensação de pele pesada ao longo do dia.",
+        meaning: "Muita gente tenta resolver oleosidade lavando demais ou usando produtos muito fortes, mas isso pode piorar o efeito rebote.",
+        step: "O primeiro passo é equilibrar a pele sem agredir. No método, você aprende uma rotina simples para controlar o brilho com mais segurança."
+      },
+      manchas: {
+        title: "Sua pele está pedindo cuidado com manchas e uniformização.",
+        text: "Pelas suas respostas, sua principal necessidade parece estar ligada a manchas, melasma, marcas ou diferença no tom da pele.",
+        meaning: "Manchas exigem constância, proteção e escolha cuidadosa de ativos. Usar qualquer clareador sem direção pode irritar ou piorar a pele.",
+        step: "O primeiro passo é entender como cuidar das manchas com segurança, principalmente com proteção e rotina consistente."
+      },
+      sensibilidade: {
+        title: "Sua pele está pedindo cuidado com sensibilidade e barreira cutânea.",
+        text: "Pelas suas respostas, sua principal necessidade parece estar ligada a ardência, vermelhidão, irritação ou reação fácil a produtos.",
+        meaning: "Quando a pele está sensível, o primeiro passo não é usar mais produtos, e sim reduzir agressões e fortalecer a barreira da pele.",
+        step: "O primeiro passo é simplificar sua rotina e evitar combinações que podem irritar. O método te mostra como fazer isso."
+      },
+      linhas: {
+        title: "Sua pele está pedindo prevenção e cuidado com sinais de expressão.",
+        text: "Pelas suas respostas, sua principal necessidade parece estar ligada a linhas finas, textura, perda de viço ou sinais de envelhecimento.",
+        meaning: "Cuidar de linhas de expressão não depende de mil produtos. Começa com rotina consistente, hidratação, proteção e ativos usados com direção.",
+        step: "O primeiro passo é organizar uma rotina de manhã e noite, com cuidados simples e consistentes."
+      },
+      cicatrizes: {
+        title: "Sua pele está pedindo atenção para textura e cicatrizes.",
+        text: "Pelas suas respostas, sua principal necessidade parece estar ligada a marcas, furinhos, cicatrizes ou textura irregular.",
+        meaning: "Cicatrizes exigem expectativa realista e orientação correta. Em alguns casos, produtos ajudam na qualidade da pele; em outros, procedimentos podem ser necessários.",
+        step: "O primeiro passo é entender o que pode melhorar com cuidados em casa e quando buscar uma avaliação profissional."
+      }
+    };
+
+    function getParam(name){
+      return new URLSearchParams(window.location.search).get(name);
+    }
+
+    const stored = localStorage.getItem("peleBonitaQuizResult");
+    const type = getParam("tipo") || stored || "oleosidade";
+    const data = resultMap[type] || resultMap.oleosidade;
+
+    document.getElementById("resultTitle").textContent = data.title;
+    document.getElementById("resultText").textContent = data.text;
+    document.getElementById("resultMeaning").textContent = data.meaning;
+    document.getElementById("resultStep").textContent = data.step;
+    document.getElementById("checkoutBtn").href = CHECKOUT_URL;
+  </script>
+</body>
+</html>
