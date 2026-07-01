@@ -50,6 +50,9 @@
     }
 
     .progress-wrap{
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .2s ease;
       position:fixed;
       z-index:50;
       top:48px;
@@ -60,6 +63,11 @@
       border-radius:999px;
       background:#f4f5f8;
       overflow:hidden;
+    }
+
+    body.show-progress .progress-wrap{
+      opacity:1;
+      pointer-events:auto;
     }
 
     .progress-fill{
@@ -410,7 +418,7 @@
     }
 
     .lp-hero{
-      min-height:calc(100vh - 116px);
+      min-height:calc(100vh - 80px);
       display:flex;
       flex-direction:column;
       justify-content:center;
@@ -443,8 +451,8 @@
     .lp-hero h1{
       margin:0 auto;
       max-width:780px;
-      font-size:clamp(2.45rem,8.8vw,4.9rem);
-      line-height:1.08;
+      font-size:clamp(2.05rem,7.2vw,3.75rem);
+      line-height:1.12;
       letter-spacing:-.06em;
       text-transform:uppercase;
       font-weight:950;
@@ -654,7 +662,7 @@
       }
 
       .lp-hero h1{
-        font-size:clamp(2.25rem,11vw,3.7rem);
+        font-size:clamp(1.95rem,9.5vw,3rem);
       }
 
       .pain-section,
@@ -1133,6 +1141,7 @@
       const total = screens.length - 1;
       const pct = current === 0 ? 0 : Math.max(0, Math.min(100, (current / total) * 100));
       progressFill.style.width = pct + "%";
+      document.body.classList.toggle("show-progress", current > 0);
     }
 
     function showScreen(index){

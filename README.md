@@ -91,3 +91,10 @@ Também foi incluído o arquivo:
 COPY_FUNIL_ALINHADO.txt
 
 Ele contém a promessa central, dor principal, mecanismo, ponte para resultado e estrutura de VSL.
+
+
+## Ajustes desta versão
+
+- Barra de progresso não aparece mais na tela inicial, evitando sobrepor o título.
+- Barra passa a aparecer somente depois que a pessoa começa o quiz.
+- Título principal da página `/quiz` foi reduzido para melhorar leitura no mobile.
