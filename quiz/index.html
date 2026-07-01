@@ -1,122 +1,143 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Descubra o que sua pele realmente precisa | Pamela Santos</title>
-  <meta name="description" content="Antes de comprar outro produto, descubra o que sua pele realmente precisa com uma análise guiada gratuita." />
-  <link rel="canonical" href="https://pelebonitasemsegredos.vercel.app/quiz" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Análise da Pele | Pamela Santos</title>
+  <meta name="robots" content="noindex,nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/quiz.css">
 </head>
-
 <body>
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="pill">Análise guiada gratuita</span>
-          <h1>Antes de comprar outro produto, descubra o que sua pele realmente precisa.</h1>
-          <p>
-            Responda um quiz rápido e veja qual é a principal necessidade da sua pele agora:
-            acne, oleosidade, manchas, sensibilidade, linhas de expressão ou cicatrizes.
-          </p>
+  <main class="app">
+    <div class="top-progress"><div class="progress-fill" id="progressFill"></div></div>
 
-          <div class="hero-points">
-            <span>✓ Leva menos de 2 minutos</span>
-            <span>✓ Resultado personalizado</span>
-            <span>✓ Orientação clara sobre por onde começar</span>
-          </div>
-
-          <a class="btn btn-primary" href="/analise">Responder quiz agora</a>
-          <p class="micro">O quiz é educativo e não substitui uma avaliação profissional individual.</p>
+    <section class="screen active intro-screen">
+      <div class="intro-content">
+        <span class="kicker">Análise guiada gratuita</span>
+        <h1>Descubra o que sua pele realmente precisa <strong>antes de comprar outro produto.</strong></h1>
+        <p class="intro-text">Responda algumas perguntas rápidas e receba uma direção inicial para cuidar da sua pele com mais segurança.</p>
+        <div class="intro-card">
+          <div class="brand-mark">PS</div>
+          <h2>Pele bonita começa com direção.</h2>
+          <p>Chega de testar produtos por modinha. Primeiro entenda sua pele, depois escolha os cuidados certos.</p>
         </div>
-
-        <div class="hero-visual">
-          <div class="visual-card">
-            <span class="visual-eyebrow">Pamela Santos</span>
-            <h2>Pele bonita começa com direção.</h2>
-            <p>
-              Chega de testar produtos por indicação aleatória. Primeiro entenda sua pele, depois escolha os cuidados certos.
-            </p>
-
-            <div class="skin-list">
-              <span>Acne</span>
-              <span>Oleosidade</span>
-              <span>Manchas</span>
-              <span>Sensibilidade</span>
-              <span>Linhas de expressão</span>
-              <span>Cicatrizes</span>
-            </div>
-          </div>
+        <div class="checks">
+          <span>✅ Leva menos de 2 minutos</span>
+          <span>✅ Resultado personalizado</span>
+          <span>✅ Orientação simples e direta</span>
         </div>
+        <button class="main-btn" type="button" data-next>Começar análise</button>
       </div>
     </section>
 
-    <section class="problem">
-      <div class="container two-grid">
-        <div>
-          <span class="eyebrow">O problema</span>
-          <h2>Você compra, testa, troca… mas continua sem saber o que funciona para sua pele?</h2>
+    <section class="screen question-screen">
+      <div class="question-head"><span class="section-label">Meu perfil</span><h2>Qual é a sua idade?</h2><p>Isso ajuda a ajustar melhor sua orientação inicial.</p></div>
+      <div class="grid-options">
+        <button class="option-card" type="button" data-value="18-29"><span class="emoji">✨</span><strong>18 a 29 anos</strong></button>
+        <button class="option-card" type="button" data-value="30-39"><span class="emoji">🌷</span><strong>30 a 39 anos</strong></button>
+        <button class="option-card" type="button" data-value="40-49"><span class="emoji">🌿</span><strong>40 a 49 anos</strong></button>
+        <button class="option-card" type="button" data-value="50+"><span class="emoji">💛</span><strong>Mais de 50 anos</strong></button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen question-screen" data-score-question="q1">
+      <div class="question-head"><span class="section-label">Minha pele</span><h2>Qual é a sua principal queixa hoje?</h2><p>Escolha a opção que mais te incomoda agora.</p></div>
+      <div class="grid-options">
+        <button class="option-card" type="button" data-value="acne"><span class="emoji">🔴</span><strong>Espinhas, cravos ou inflamações</strong></button>
+        <button class="option-card" type="button" data-value="oleosidade"><span class="emoji">💧</span><strong>Pele muito oleosa ou brilho excessivo</strong></button>
+        <button class="option-card" type="button" data-value="manchas"><span class="emoji">☀️</span><strong>Manchas, melasma ou tom irregular</strong></button>
+        <button class="option-card" type="button" data-value="sensibilidade"><span class="emoji">🌸</span><strong>Ardência, vermelhidão ou irritação</strong></button>
+        <button class="option-card" type="button" data-value="linhas"><span class="emoji">⏳</span><strong>Linhas finas ou sinais de idade</strong></button>
+        <button class="option-card" type="button" data-value="cicatrizes"><span class="emoji">🧬</span><strong>Marcas, furinhos ou cicatrizes</strong></button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen question-screen" data-score-question="q2">
+      <div class="question-head"><span class="section-label">Minha pele</span><h2>Como sua pele costuma ficar ao longo do dia?</h2></div>
+      <div class="list-options">
+        <button class="list-card" type="button" data-value="oleosidade">Brilhando muito, principalmente na testa, nariz e queixo</button>
+        <button class="list-card" type="button" data-value="sensibilidade">Repuxando, ardendo ou ficando vermelha com facilidade</button>
+        <button class="list-card" type="button" data-value="manchas">Com aparência irregular e manchas mais evidentes</button>
+        <button class="list-card" type="button" data-value="linhas">Com textura cansada, linhas ou aspecto envelhecido</button>
+        <button class="list-card" type="button" data-value="acne">Com cravos, espinhas ou pontos inflamados</button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen question-screen" data-score-question="q3">
+      <div class="question-head"><span class="section-label">Minha rotina</span><h2>Quando você testa um produto novo, sua pele costuma:</h2></div>
+      <div class="list-options">
+        <button class="list-card" type="button" data-value="sensibilidade">Irritar, arder ou ficar vermelha</button>
+        <button class="list-card" type="button" data-value="acne">Dar espinhas ou piorar cravos</button>
+        <button class="list-card" type="button" data-value="oleosidade">Ficar mais oleosa ou pesada</button>
+        <button class="list-card" type="button" data-value="manchas">Não melhorar manchas mesmo usando com frequência</button>
+        <button class="list-card" type="button" data-value="linhas">Não dar resultado em textura, viço e linhas</button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen question-screen" data-score-question="q4">
+      <div class="question-head"><span class="section-label">Minha realidade</span><h2>Qual frase mais parece com você?</h2></div>
+      <div class="list-options">
+        <button class="list-card" type="button" data-value="acne">“Já tentei secativos e sabonetes, mas a acne volta.”</button>
+        <button class="list-card" type="button" data-value="oleosidade">“Minha pele fica oleosa mesmo lavando várias vezes.”</button>
+        <button class="list-card" type="button" data-value="manchas">“Tenho manchas e não sei o que usar com segurança.”</button>
+        <button class="list-card" type="button" data-value="sensibilidade">“Tenho medo de usar produto e minha pele reagir.”</button>
+        <button class="list-card" type="button" data-value="linhas">“Quero prevenir ou melhorar sinais de idade.”</button>
+        <button class="list-card" type="button" data-value="cicatrizes">“Quero melhorar marcas e textura da pele.”</button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen question-screen">
+      <div class="question-head"><span class="section-label">Meu objetivo</span><h2>O que você mais deseja nesse momento?</h2></div>
+      <div class="grid-options">
+        <button class="option-card" type="button" data-value="clareza"><span class="emoji">🧭</span><strong>Saber por onde começar</strong></button>
+        <button class="option-card" type="button" data-value="comprar-melhor"><span class="emoji">🛍️</span><strong>Comprar produtos com mais segurança</strong></button>
+        <button class="option-card" type="button" data-value="rotina"><span class="emoji">📅</span><strong>Ter uma rotina simples para seguir</strong></button>
+        <button class="option-card" type="button" data-value="resultado"><span class="emoji">🌟</span><strong>Melhorar a aparência da minha pele</strong></button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen question-screen" data-multiple="true">
+      <div class="question-head"><span class="section-label">Meu perfil</span><h2>O que mais te atrapalha hoje?</h2><p>Pode escolher mais de uma opção.</p></div>
+      <div class="grid-options">
+        <button class="option-card" type="button" data-value="tempo"><span class="emoji">⏰</span><strong>Falta de tempo</strong></button>
+        <button class="option-card" type="button" data-value="confusao"><span class="emoji">🤯</span><strong>Não sei o que usar</strong></button>
+        <button class="option-card" type="button" data-value="dinheiro"><span class="emoji">💸</span><strong>Já gastei com produto errado</strong></button>
+        <button class="option-card" type="button" data-value="sensivel"><span class="emoji">⚠️</span><strong>Tenho medo da pele reagir</strong></button>
+        <button class="option-card" type="button" data-value="constancia"><span class="emoji">📌</span><strong>Não consigo manter rotina</strong></button>
+        <button class="option-card" type="button" data-value="tudo"><span class="emoji">😅</span><strong>Um pouco de tudo</strong></button>
+      </div>
+      <button class="main-btn disabled" type="button" data-next disabled>Continuar</button>
+    </section>
+
+    <section class="screen analysis-screen">
+      <div class="analysis-content">
+        <h2>Análise inicial do seu perfil</h2>
+        <p>Você está aqui</p>
+        <div class="meter-card">
+          <div class="meter-col"><div class="meter"><span class="yellow" style="height:45%">45%</span></div><strong>Clareza</strong></div>
+          <div class="meter-col"><div class="meter"><span class="green" style="height:70%">70%</span></div><strong>Vontade</strong></div>
+          <div class="meter-col"><div class="meter"><span class="red" style="height:30%">30%</span></div><strong>Direção</strong><small>É o que falta para você cuidar melhor da pele.</small></div>
         </div>
-        <div class="copy-block">
-          <p>
-            Muitas mulheres gastam dinheiro com produtos errados porque seguem modinhas, vídeos aleatórios ou indicações que não foram feitas para a pele delas.
-          </p>
-          <p>
-            O primeiro passo não é comprar mais um produto. É entender o que sua pele está pedindo agora.
-          </p>
-        </div>
+        <div class="warning-box"><strong>⚠️ O que realmente vai resolver o problema?</strong><p>Uma rotina prática, feita para atender sua necessidade e evitar escolhas erradas.</p></div>
+        <button class="main-btn purple" type="button" data-next>Continuar</button>
       </div>
     </section>
 
-    <section class="how">
-      <div class="container">
-        <div class="section-title">
-          <span class="eyebrow">Como funciona</span>
-          <h2>Em poucos passos você recebe uma direção inicial.</h2>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <strong>01</strong>
-            <h3>Responda o quiz</h3>
-            <p>Você responde perguntas simples sobre sua pele, rotina e principal incômodo.</p>
-          </div>
-
-          <div class="step">
-            <strong>02</strong>
-            <h3>Receba seu resultado</h3>
-            <p>O sistema identifica sua principal necessidade e mostra um diagnóstico educativo.</p>
-          </div>
-
-          <div class="step">
-            <strong>03</strong>
-            <h3>Veja a orientação</h3>
-            <p>Na página de resultado, você assiste à explicação da Pamela e conhece o método.</p>
-          </div>
-        </div>
-
-        <div class="center">
-          <a class="btn btn-primary" href="/analise">Começar análise gratuita</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="expert">
-      <div class="container expert-card">
-        <div>
-          <span class="eyebrow">Por Pamela Santos</span>
-          <h2>Uma direção simples para você sair do achismo.</h2>
-        </div>
-        <p>
-          Pamela Santos é Esteticista e Cosmetóloga. O objetivo do método é ajudar mulheres a entenderem melhor sua pele
-          e seguirem uma rotina de cuidados com mais clareza, sem depender de compras por impulso.
-        </p>
-      </div>
+    <section class="screen question-screen">
+      <div class="question-head"><span class="section-label">Último passo</span><h2>Você quer receber seu diagnóstico personalizado agora?</h2><p>Com base nas suas respostas, vamos mostrar sua principal necessidade e uma orientação inicial.</p></div>
+      <button class="main-btn" type="button" id="submitQuiz">Enviar análise</button>
+      <button class="ghost-btn" type="button" data-prev>Voltar</button>
     </section>
   </main>
+  <script src="./assets/js/quiz.js"></script>
 </body>
 </html>
