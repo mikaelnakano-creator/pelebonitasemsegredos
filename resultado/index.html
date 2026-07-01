@@ -230,6 +230,25 @@
       font-weight:800;
     }
 
+
+    .offer .old-price{
+      margin-top:10px;
+      font-size:clamp(1.25rem,4.2vw,1.7rem);
+      color:rgba(255,255,255,.62);
+      text-decoration:line-through;
+      text-decoration-thickness:3px;
+      font-weight:900;
+    }
+
+    .offer .new-price-label{
+      margin-top:6px;
+      color:rgba(255,255,255,.82);
+      font-size:clamp(1rem,3.4vw,1.25rem);
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.04em;
+    }
+
     .offer strong{
       display:block;
       font-size:clamp(2.4rem,9vw,4.2rem);
@@ -352,6 +371,8 @@
 
       <div class="offer">
         <span>Oferta de lançamento</span>
+        <small class="old-price">De R$ 265</small>
+        <small class="new-price-label">Por apenas:</small>
         <strong>R$ 27,90</strong>
         <small>Acesso imediato • Garantia de 7 dias</small>
       </div>

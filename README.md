@@ -116,3 +116,12 @@ Certifique-se de que a imagem esteja na pasta principal do projeto:
 ```txt
 assets/img/pamela.jpg
 ```
+
+
+## Atualização — oferta no resultado
+
+A oferta agora aparece como:
+
+De R$ 265
+Por apenas:
+R$ 27,90
